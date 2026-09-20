@@ -1,0 +1,62 @@
+<!-- 構造・情報量の目安。配色は SSoT が正。base.html の head と揃える -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>図解の流れ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            tm1: {
+              bg: '#F0F4F8',
+              frame: '#102A43',
+              accent: '#1890FF',
+              text: '#333333',
+              onDark: '#FFFFFF',
+              surface: '#FFFFFF',
+            }
+          },
+          fontFamily: { sans: ['"Noto Sans JP"', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-tm1-bg text-tm1-text font-sans antialiased border-t-4 border-tm1-frame">
+  <main class="max-w-3xl mx-auto px-5 py-12">
+    <p class="text-lg font-bold leading-relaxed mb-8">
+      先に一言。<br>
+      つぎに型を1つ。<br>
+      人がOKしてから HTML を1本。
+    </p>
+    <ol class="grid gap-4 md:grid-cols-3">
+      <li class="bg-tm1-surface border border-tm1-frame rounded-xl p-5">
+        <p class="text-tm1-accent font-black text-2xl mb-2">1</p>
+        <h2 class="font-bold mb-1">公開と色</h2>
+        <p class="text-sm">1問ずつ確定</p>
+      </li>
+      <li class="bg-tm1-surface border border-tm1-frame rounded-xl p-5">
+        <p class="text-tm1-accent font-black text-2xl mb-2">2</p>
+        <h2 class="font-bold mb-1">リードと図</h2>
+        <p class="text-sm">型は4つのうち1つ</p>
+      </li>
+      <li class="bg-tm1-surface border border-tm1-frame rounded-xl p-5">
+        <p class="text-tm1-accent font-black text-2xl mb-2">3</p>
+        <h2 class="font-bold mb-1">HTML</h2>
+        <p class="text-sm">OKのあと案件フォルダへ</p>
+      </li>
+    </ol>
+    <section class="mt-10 border-l-4 border-tm1-frame bg-tm1-surface pl-4 py-3 rounded-r-lg">
+      <h2 class="font-bold mb-1">各論</h2>
+      <p class="text-sm">公開は要のときだけ。失敗してもローカルで完了。</p>
+    </section>
+  </main>
+</body>
+</html>
