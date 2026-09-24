@@ -206,5 +206,4 @@ Go | Revise | Stop
 - [references/harness.md](references/harness.md)
 - [reviewers.md](reviewers.md)
 - [references/ui-design-principles-checklist.md](references/ui-design-principles-checklist.md)
-- [references/starbucks-visual-checklist.md](references/starbucks-visual-checklist.md)
 - [examples.md](examples.md)

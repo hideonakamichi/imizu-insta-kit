@@ -34,19 +34,14 @@
 - `ui` + `reader`（スクリーンショット or コンポーネント全文）
 - パケットに **ui-design-principles-checklist.md 全文** を載せる（`ui` は全項目 Pass/Fail/N/A）
 
-## 例6: スライド設計（writing-slide-decks Step 3）
-
-- 読み上げ原稿 + グリル合意 → `reader` + `product`
-- Step 4 後の設計図 A は reader で軽く再確認可
-
-## 例7: CI 失敗
+## 例6: CI 失敗
 
 **ユーザー:** `PR #42 の lint が落ちた`
 
 - `ci-investigator` → 原因特定
 - コード修正が必要なら `bugbot` を追加
 
-## 例8: 設計 ADR + 実装混在
+## 例7: 設計 ADR + 実装混在
 
 - `bugbot` + `product` + `reader`（3体）
 - 汎用エージェントでコードを見ない（コードは `bugbot` + `security-review`）

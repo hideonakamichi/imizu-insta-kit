@@ -19,10 +19,11 @@ model: sonnet
 
 読めなかった場合は、審査を始めずに「正本チェックリストを読めなかった」と報告して終了してください。基準なしの判定は出しません。
 
-評価対象が **図解 HTML・Mermaid・スライド設計** のときは、次も読みます。既存の `reader` 審査員が図解を見るときと同じ扱いに揃えたものです。
+評価対象が **図解 HTML・Mermaid** のときは、次も読みます。既存の `reader` 審査員が図解を見るときと同じ扱いに揃えたものです。
 
 ```
-~/.claude/skills/judge-panel/references/starbucks-visual-checklist.md
+~/.claude/skills/creating-visual-explainers/references/model-answer.html
+~/.claude/skills/creating-visual-explainers/references/base.html
 ```
 
 ## 審査の観点

@@ -1,7 +1,7 @@
 # UI Design Principles — ジャッジ用チェックリスト
 
 **SSoT（正本）:** `USERS RULE/user-rules/user-rule-ui-design-principles.md`  
-**Rule ミラー:** `~/.cursor/rules/ui-design-principles.mdc`
+**この一覧が正本。** 他のファイルを見にいく必要はない。
 
 Panel 審査員（`ui` / UI 対象の `reader`）起動時、親が共有パケットに **全文または本ファイル** を載せる。  
 `ui` 審査員は各項目を **Pass / Fail / N/A** で判定し、Fail は「悪い点・リスク」に必ず書く。
@@ -55,6 +55,6 @@ Panel 審査員（`ui` / UI 対象の `reader`）起動時、親が共有パケ�
 - [ ] 主要ボタン 44px 以上・Loading/Error/Empty あり
 - [ ] 破壊的操作に確認・Cancel/Undo あり
 - [ ] フォームにラベルと具体的エラー文
-- [ ] トンマナ（`output-tonmanna`）・図解（`starbucks-visual-explainer`）と役割分担 OK
+- [ ] 図解（creating-visual-explainers）と役割分担 OK
 
-**優先:** 配色・フォント → `output-tonmanna` / 図解 → `starbucks-visual-explainer` / 部品 → `nextjs-vercel-ui`。衝突時は **認知負荷の軽減** を最優先。
+**優先:** 図解の配色・フォントは `creating-visual-explainers` の `references/base.html` が基準。衝突時は **認知負荷の軽減** を最優先。

@@ -47,7 +47,7 @@ grill-me/
 | **ロールアウト** | 段階的公開、フィーチャーフラグ、ロールバック |
 | **AIの関与** | 何をAIに任せ、何をコード/人に残すか。外付け vs アプリ内 vs なし。ハーネス（型・プレビュー・人の確定） |
 
-**AI組込み確認（必須）:** スコープがプロダクト・機能・ワークフローに触れるとき、Step 3 の早い段階で **必ず1問** 確認する。詳細 → `_shared/ai-integration-check.md`（Cursor: `~/.cursor/skills/_shared/` ／ Claude: `~/.claude/skills/_shared/`。スキル内へのベタコピー禁止）
+**AI組込み確認（必須）:** スコープがプロダクト・機能・ワークフローに触れるとき、Step 3 の早い段階で **必ず1問** 確認する。詳細 → `_shared/ai-integration-check.md`（置き場所は `~/.claude/skills/_shared/`。スキル内へのベタコピー禁止）
 
 ## Step 3: 1問ずつグリルする
 

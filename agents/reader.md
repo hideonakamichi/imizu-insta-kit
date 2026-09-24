@@ -13,10 +13,11 @@ model: sonnet
 
 ## 評価対象によって読むもの
 
-評価対象が **図解 HTML・Mermaid・スライド設計** のときは、審査の前に次を **必ず Read** してください。
+評価対象が **図解 HTML・Mermaid** のときは、審査の前に次を **必ず Read** してください。この2つが、この図解の見た目の基準です。
 
 ```
-~/.claude/skills/judge-panel/references/starbucks-visual-checklist.md
+~/.claude/skills/creating-visual-explainers/references/model-answer.html
+~/.claude/skills/creating-visual-explainers/references/base.html
 ```
 
 評価対象が **UI 画面** のときは、次も読み、認知負荷・階層・可読性の観点（§1・§4）に絞って確認します。UI の総合判定は `ui` の担当なので越境しません。

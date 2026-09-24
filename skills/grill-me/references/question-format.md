@@ -107,7 +107,7 @@ AskQuestion の前後に長文を書かない。表・「1〜4で答えて」は
 - …
 ```
 
-**AI方針**（A/B/C）が決まっていれば「決まったこと」に必ず含める → `_shared/ai-integration-check.md`（Cursor: `~/.cursor/skills/_shared/` ／ Claude: `~/.claude/skills/_shared/`）
+**AI方針**（A/B/C）が決まっていれば「決まったこと」に必ず含める → `_shared/ai-integration-check.md`（置き場所は `~/.claude/skills/_shared/`）
 
 ---
 
@@ -148,4 +148,4 @@ AskQuestion の前後に長文を書かない。表・「1〜4で答えて」は
 
 ## 他スキルから呼ぶとき
 
-`writing-slide-decks` 等が `grill-me` を実行するときも **本フォーマットが優先**。
+他のスキルが `grill-me` を実行するときも **本フォーマットが優先**。

@@ -55,7 +55,7 @@ judge-panel の審査員は **すべて `agents/` に登録済みのサブエー
 
 ### Bugbot / Security Review
 
-審査基準の正本 → `agents/bugbot.md` / `agents/security-review.md`（Cursor 版の起動手順は `~/.cursor/skills-cursor/review-bugbot/SKILL.md` / `review-security/SKILL.md`）
+審査基準の正本 → `agents/bugbot.md` / `agents/security-review.md`。
 
 ```text
 Full Repository Path: <absolute path>
