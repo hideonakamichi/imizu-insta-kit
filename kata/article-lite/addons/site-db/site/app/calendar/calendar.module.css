@@ -1,0 +1,184 @@
+/* /calendar — ひとり親の1年カレンダー。
+   スマホファースト: 375px では「月の見出し」を上、「中身」を下の縦積み。
+   幅が取れる画面だけ 月|中身 の2カラムにする。 */
+
+.hero h1 em { font-style: normal; color: var(--brand-deep); }
+
+/* ---------- 冒頭の但し書き ---------- */
+.caution {
+  margin: 18px 0 26px;
+  padding: 14px 16px;
+  background: var(--info-soft);
+  border: 1px solid #d5e3f6;
+  border-radius: 12px;
+}
+.cautionTitle {
+  margin: 0 0 6px;
+  font-size: .86rem;
+  font-weight: 700;
+  color: var(--info);
+}
+.cautionList {
+  margin: 0;
+  padding-left: 1.1em;
+  font-size: .84rem;
+  line-height: 1.8;
+  color: var(--text);
+}
+.cautionList li + li { margin-top: 5px; }
+
+/* ---------- 月リスト ---------- */
+.months {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+
+.month {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  scroll-margin-top: 80px;
+}
+
+/* 今月だけ強調する (Asia/Tokyo 判定は lib/seasonal.js) */
+.monthCurrent {
+  border-color: var(--brand);
+  background: var(--brand-soft);
+  box-shadow: 0 2px 14px rgba(224, 90, 122, .12);
+}
+
+.monthHead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+.monthCurrent .monthHead { border-bottom-color: #f2cfd9; }
+
+.monthNum {
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--brand-deep);
+  letter-spacing: .01em;
+}
+.monthUnit {
+  font-size: .9rem;
+  font-weight: 700;
+  margin-left: 2px;
+}
+
+.nowBadge {
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--brand);
+  color: #fff;
+  font-size: .76rem;
+  font-weight: 700;
+  line-height: 1.8;
+}
+
+.monthBody { min-width: 0; }
+
+.empty {
+  margin: 0;
+  font-size: .84rem;
+  line-height: 1.7;
+  color: var(--text-soft);
+}
+
+/* ---------- 各月の項目 ---------- */
+.items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 14px;
+}
+
+.item { min-width: 0; }
+
+.itemHead {
+  margin: 0 0 4px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+  line-height: 1.6;
+}
+
+.period {
+  flex: none;
+  padding: 1px 9px;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--brand);
+  color: var(--brand-deep);
+  font-size: .76rem;
+  font-weight: 700;
+  line-height: 1.8;
+  white-space: nowrap;
+}
+
+.itemTitle {
+  font-size: .98rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.itemBody {
+  margin: 0;
+  font-size: .86rem;
+  line-height: 1.8;
+  color: var(--text-soft);
+}
+
+.itemLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  margin: 6px 0 0;
+}
+
+.itemLink {
+  font-size: .84rem;
+  font-weight: 700;
+  color: var(--brand-deep);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(178, 58, 87, .35);
+}
+.itemLink:hover,
+.itemLink:focus-visible { border-bottom-color: var(--brand-deep); }
+
+.footNote {
+  margin: 22px 0 0;
+  font-size: .82rem;
+  line-height: 1.8;
+  color: var(--text-soft);
+}
+
+/* 幅が取れる画面では 月見出し | 中身 の2カラムにして一覧性を上げる */
+@media (min-width: 620px) {
+  .month {
+    display: grid;
+    grid-template-columns: 92px 1fr;
+    gap: 18px;
+    align-items: start;
+    padding: 16px 20px;
+  }
+  .monthHead {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+  .monthCurrent .monthHead { border-bottom: 0; }
+}

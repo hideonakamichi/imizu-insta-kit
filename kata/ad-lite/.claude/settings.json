@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(py .claude/skills/collect-toolkit/scripts/build_manifest.py *)",
+      "Bash(py .claude/skills/analyze-toolkit/scripts/analyze.py *)",
+      "Bash(py .claude/skills/banner-toolkit/scripts/banner.py *)",
+      "Bash(py .claude/skills/lp-toolkit/scripts/lp_image.py *)",
+      "Bash(py scripts/check_setup.py)",
+      "Bash(python3 .claude/skills/collect-toolkit/scripts/build_manifest.py *)",
+      "Bash(python3 .claude/skills/analyze-toolkit/scripts/analyze.py *)",
+      "Bash(python3 .claude/skills/banner-toolkit/scripts/banner.py *)",
+      "Bash(python3 .claude/skills/lp-toolkit/scripts/lp_image.py *)",
+      "Bash(python3 scripts/check_setup.py)"
+    ]
+  }
+}

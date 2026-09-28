@@ -1,0 +1,96 @@
+# Bounded Agent Loop 設定
+#
+# 生成→評価→改善ループなど、繰り返し処理の安全弁。各ループに以下を必ず定義する:
+#   1. goal           — 終了条件（どの状態に達したら抜けるか）
+#   2. max_iterations — 上限回数（達しなくても強制終了）
+#   3. on_exhaust     — 上限到達時の遷移先
+#
+# ここの上限を緩めると、失敗時に延々とリトライしてAPI費用だけがかさむ。
+# 変更するときは cost_guards.daily_cost_limit_usd と合わせて見直すこと。
+
+loops:
+  banner_evaluation:
+    description: バナー画像の evaluator 合否判定ループ
+    goal: verdict == "pass"
+    max_iterations: 2
+    on_exhaust: abort_no_post  # 投稿せず中止、output/に退避してDiscord通知
+
+  prompt_lint:
+    description: リール動画プロンプトの機械検査（generate_video.py --lint-only）→ reel-script-writer 修正ループ。Grokを呼ばないので安価
+    goal: lint exit == 0
+    max_iterations: 2
+    on_exhaust: abort_no_post
+
+  reel_evaluation:
+    description: リール動画の evaluator 合否判定ループ（上限2回＝やり直しは実質1回。evaluator の retry_action に従って使う）
+    goal: verdict == "pass"
+    max_iterations: 2
+    on_exhaust: abort_no_post
+
+  caption_evaluation:
+    description: キャプション/ハッシュタグの evaluator 合否判定ループ
+    goal: verdict == "pass"
+    max_iterations: 2
+    on_exhaust: abort_no_post
+
+  carousel_slide_regeneration:
+    description: カルーセルの不合格スライド単位の再生成ループ（banner.py --only-slide）
+    goal: slide verdict == "pass"
+    max_iterations: 2
+    on_exhaust: abort_no_post
+
+  image_generation_retry:
+    description: Grok CLI画像生成（image_gen）のレート制限・一時障害・検証NGリトライ
+    goal: all_images_generated
+    max_iterations: 3
+    on_exhaust: abort_no_post
+
+  video_generation_retry:
+    description: Grok CLI動画生成（generate_video.py）の失敗・検証NGリトライ（1回2〜5分かかる）
+    goal: video_generated_and_verified
+    max_iterations: 2
+    on_exhaust: abort_no_post
+
+  tts_generation_retry:
+    description: Fish Audio（リールのナレーションTTS）のレート制限・一時障害リトライ
+    goal: all_audio_generated
+    max_iterations: 3
+    on_exhaust: abort_no_post
+
+  ig_publish_retry:
+    description: Instagram Graph API 投稿（コンテナ作成〜publish）のリトライ
+    goal: media_id_obtained
+    max_iterations: 3
+    on_exhaust: abort_no_post
+
+  ig_container_polling:
+    description: リール投稿時のコンテナ処理ステータスポーリング（status_code=FINISHED待ち）
+    goal: status_code == "FINISHED"
+    max_seconds: 600
+    on_exhaust: abort_no_post
+
+  pipeline_total:
+    description: 1回のパイプライン実行全体のタイムアウト
+    goal: pipeline_completed
+    max_seconds: 1800
+    on_exhaust: kill_and_notify_failure
+
+# 生成回数のガード
+#
+# 生成はGrok CLI（SuperGrok/X Premium+サブスク枠）で行うため、API従量課金は発生しない。
+# 代わりにサブスク枠のレート制限を食い潰さないよう、1日あたりの生成回数に上限を置く
+# （リトライ暴走の安全弁を兼ねる）。
+generation_guards:
+  daily_image_generations_max: 30   # カルーセル1回=最大6枚 + 再生成分で十分な余裕
+  daily_video_generations_max: 6    # リール1本 + 再生成2回でも収まる
+  on_exceed: abort_no_post_and_alert
+
+# （旧設定）API従量課金時代のコスト上限。Grok CLI移行で未使用だが、
+# レガシー・スライド式パイプライン（OpenAI/Fish Audio）に戻す場合は復活させること
+cost_guards:
+  daily_cost_limit_usd: 3.0
+  on_exceed: abort_no_post_and_alert
+
+# トークン失効の猶予日数（system-healthcheckスキルが参照）
+token_refresh:
+  warn_before_days: 10

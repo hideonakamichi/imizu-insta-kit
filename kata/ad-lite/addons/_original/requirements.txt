@@ -1,0 +1,18 @@
+# Meta広告自動化パイプライン — Python依存
+#
+# インストール:
+#   python3 -m venv .venv
+#   source .venv/bin/activate
+#   pip install -r requirements.txt
+#   patchright install chromium   # scrape.py 用のブラウザ
+
+# --- Scrape ステージ（scripts/scrape.py） ---
+patchright            # Playwright fork（検知回避強化版）。Meta広告ライブラリのスクレイプに使用
+
+# --- Analyze ステージ（scripts/analyze.py） ---
+numpy                 # ベクトル演算・PCA
+matplotlib            # concept_map.png の可視化
+google-genai          # Gemini Embedding (gemini-embedding-001)
+
+# --- Banner / LP画像 ステージ（scripts/banner.py, scripts/lp_image.py） ---
+openai                # GPT-image-2 で画像生成

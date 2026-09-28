@@ -1,0 +1,4 @@
+{
+  "_note": "Lite 版の機能スイッチ。images を true にすると、図解画像（Gemini）を作って査読でも2枚以上を求める。addons/README.md を参照",
+  "images": false
+}

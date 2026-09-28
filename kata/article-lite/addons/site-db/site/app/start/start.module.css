@@ -1,0 +1,77 @@
+/* ============================================================
+   /start だけで使うスタイル
+   ------------------------------------------------------------
+   ★色の使い分けに従うこと★
+   ローズ (--brand-deep) は「押せる」の合図なので、ここで作るラベルには
+   使わない。ラベルは押せないので文字色は --heading。
+   例外は「借りる・返済あり」で、これは誤解が実害 (返済) につながるため
+   警告色 (--warn) を使う。globals.css の .cat-desc-warn と同じ考え方。
+
+   共通の .badge (globals.css) と組み合わせて使う:
+     <span className={`badge ${styles.nature}`}>もらえる</span>
+   ============================================================ */
+
+/* 性質ラベルの既定。白地 + 細い枠線で、塗りつぶしの都道府県バッジ・
+   「解説を準備中」バッジと見分けられるようにする */
+.nature {
+  background: var(--surface);
+  color: var(--heading);
+  /* border ではなく inset shadow。他のバッジと高さ・字面がずれないため */
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+/* ★このサイトでいちばん誤解が実害につながるラベル★
+   給付だと思って借り、あとで返済に苦しむことを防ぐ。塗り + 枠 + 警告色で、
+   カードの中でここだけが目に入るようにする */
+.natureLoan {
+  background: var(--warn-soft);
+  color: var(--warn);
+  box-shadow: inset 0 0 0 1px var(--warn);
+}
+
+/* ---------- ラベルの凡例 ---------- */
+/* チップ群の下、制度カードより前に置く。ラベルを初めて見る前に意味が分かる順序 */
+.legend {
+  margin: 16px 0 0;
+  padding: 12px 14px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.legendLead {
+  margin: 0 0 9px;
+  font-size: .86rem;
+  line-height: 1.75;
+  color: var(--text);
+}
+
+.legendList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 7px;
+}
+
+/* ラベルと説明を1行に並べ、狭い画面では説明だけ折り返す */
+.legendList li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 8px;
+  font-size: .82rem;
+  line-height: 1.7;
+  color: var(--text-soft);
+}
+
+.legendDesc {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* 「あとで返すお金」だけ、説明側も警告色にする */
+.legendDescWarn {
+  color: var(--warn);
+  font-weight: 700;
+}

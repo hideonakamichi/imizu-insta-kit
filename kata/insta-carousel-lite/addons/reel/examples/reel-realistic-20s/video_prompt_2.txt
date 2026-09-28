@@ -1,0 +1,29 @@
+Create a complete 10.000-second photorealistic Japanese cinematic vertical (9:16) short video for an information account that helps parents of children who do not attend regular school. This is PART 2 of a 2-part continuous reel; it starts directly on a new shot (no intro fade) and ends with a still end card.
+
+STYLE LOCK (identical across all shots — do not drift):
+Photorealistic cinematic vertical video, shot like a high-end Japanese lifestyle commercial: soft natural morning light, warm gentle color grade, shallow depth of field, calm slow camera movement (slow push-in or gentle drift only, no shaky handheld).
+Locations are real Japanese environments (home, school, bright modern free-school interior). Warm, reassuring, hopeful mood — never dark, never sad, never alarming.
+People may appear ONLY as hands and forearms (cropped at the wrist or forearm) — never a head, never a face, never a torso, never a back. If a shot would need a body, crop it out of frame instead. No uniform crests, no school names, no signage, no identifiable buildings.
+On-screen Japanese text style (identical on every shot): very bold modern Japanese Gothic typeface, white glyphs with a thin dark-navy outline and a subtle soft shadow, large, centered horizontally. Text must be perfectly readable against the footage.
+Negative: no logos, no watermarks, no brand names, no recognizable real person or face, no fear-inducing imagery, no crying, no darkness, no rain, no clutter.
+Never a mincho/serif face — every phrase in every shot uses the same bold Gothic face.
+Do not let the style drift between shots.
+
+[Shot 1] 00:00.000-00:03.000
+Begin immediately. Close-up of a teacher's hands gently placing a small circular stamp into a paper attendance record book on a wooden desk, soft daylight, shallow depth of field. Large white outlined Japanese text appears in two stages:
+"出席あつかいに"
+"できることも"
+
+[Shot 2] 00:03.000-00:06.500
+Cut to a close-up at hand height: an adult's hand holding a small child's hand, both cropped at the forearm, moving slowly toward the bright glass entrance door of a modern free-school building on a sunny day. Warm backlight. Large white outlined Japanese text appears in two stages:
+"まずは"
+"見学からでOK"
+
+[Shot 3] 00:06.500-00:10.000
+Cut to a calm end card: a softly blurred (bokeh) warm interior background of the free-school space, completely still. Reveal large white outlined Japanese text, centered:
+"フリースクールという学び方"
+Below it, a smaller line in the same outlined style with a warm yellow-green tone:
+"保存して見返してね"
+Hold the end card completely still until exactly 10.000 seconds. Do not fade to black.
+
+overall_soundscape: subtle realistic ambience only — a soft paper/stamp sound in Shot 1, faint outdoor birds and light footsteps in Shot 2, near-silence with a single soft warm chime at the start of Shot 3. Very low volume. No narration. No spoken words. No dialogue. No background music. No vocals.

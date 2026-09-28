@@ -1,0 +1,48 @@
+# schedule.yaml — 定期実行のスケジュール（ここが唯一の正）
+#
+# 次の2つが、このファイルだけを読みます。ほかの場所に時刻や曜日を書く必要はありません。
+#   ・bin/setup_launchd.sh      … launchd（macOSの定期実行）に登録する
+#   ・週次点検（audit_posts.py） … 「予定どおり投稿されたか」「ネタが足りるか」を数える
+#
+# 変更したら、必ず登録し直してください:
+#   bash bin/setup_launchd.sh
+#
+# 書き方:
+#   enabled  : true のジョブだけ登録される。false にして登録し直すと解除される
+#   times    : "HH:MM" を並べる（1日に複数回なら複数書く）
+#   weekdays : mon tue wed thu fri sat sun から選ぶ。[] または省略で毎日
+#   pipeline : logs/posted.jsonl に記録される種類（banner / reel）。投稿しないジョブは書かない
+#
+# はじめは少ない回数で始めることを勧めます。1回の実行ごとに Claude の利用枠（または料金）を
+# 使い、品質ゲートで中止した回にも同じだけかかります（目安は README の「費用」）。
+# 予定の時刻に Mac がスリープしていると、ジョブはスリープから復帰した時点で遅れて実行されます
+# （電源が切れていた場合は実行されません）。決めた時刻に投稿したいなら、その時刻にスリープしない設定に。
+# 投稿するジョブどうしは同時に走りません（後から来たほうが、先のジョブが終わるのを最大40分待ちます）。
+
+jobs:
+  banner:            # 図解カルーセル
+    enabled: true
+    script: "bin/run_banner.sh"
+    pipeline: "banner"
+    times: ["09:00"]
+    weekdays: [mon, wed, fri]
+
+  reel:              # リール（config/brand.yaml の design.reel_style。既定は minimal）
+    enabled: true
+    script: "bin/run_reel.sh"
+    pipeline: "reel"
+    times: ["12:00"]
+    weekdays: [tue, sat]
+
+  reel-realistic:    # リール（実写風）。顔の映り込みリスクがあるので既定は無効。
+    enabled: false   # 有効にする前に README の「realistic を使う前に」を読み、手動で数本試すこと
+    script: "bin/run_reel_realistic.sh"
+    pipeline: "reel"
+    times: ["19:00"]
+    weekdays: [thu]
+
+  healthcheck:       # 週次点検。アクセストークンの期限切れを事前に知らせるので、止めないこと
+    enabled: true
+    script: "bin/run_healthcheck.sh"
+    times: ["10:00"]
+    weekdays: [sun]

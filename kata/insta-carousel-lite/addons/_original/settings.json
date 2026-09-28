@@ -1,0 +1,40 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 .claude/skills/banner-production/scripts/banner.py *)",
+      "Bash(python3 .claude/skills/shared/scripts/grok_media.py *)",
+      "Bash(python3 .claude/skills/reel-production/scripts/generate_video.py *)",
+      "Bash(python3 .claude/skills/reel-production/scripts/narrate_and_mix.py *)",
+      "Bash(python3 .claude/skills/system-healthcheck/scripts/check_grok.py *)",
+      "Bash(python3 .claude/skills/reel-production/scripts/generate_slides.py *)",
+      "Bash(python3 .claude/skills/reel-production/scripts/overlay_text.py *)",
+      "Bash(python3 .claude/skills/reel-production/scripts/audio_generate.py *)",
+      "Bash(python3 .claude/skills/reel-production/scripts/assemble_video.py *)",
+      "Bash(python3 .claude/skills/reel-production/scripts/mix_bgm.py *)",
+      "Bash(python3 .claude/skills/reel-production/scripts/check_consistency.py *)",
+      "Bash(python3 .claude/skills/reel-production/scripts/extract_narration.py *)",
+      "Bash(python3 .claude/skills/reel-production/scripts/extract_frames.py *)",
+      "Bash(python3 .claude/skills/reel-production/scripts/lint_prompt.py *)",
+      "Bash(bash .claude/skills/telop-srt-toolkit/scripts/extract_audio.sh *)",
+      "Bash(python3 .claude/skills/telop-srt-toolkit/scripts/whisper_srt.py *)",
+      "Bash(python3 .claude/skills/telop-srt-toolkit/scripts/correct_srt.py *)",
+      "Bash(python3 .claude/skills/telop-srt-toolkit/scripts/dp_split_srt.py *)",
+      "Bash(python3 .claude/skills/telop-srt-toolkit/scripts/burn_subtitles.py *)",
+      "Bash(python3 .claude/skills/instagram-publishing/scripts/r2_upload.py *)",
+      "Bash(python3 .claude/skills/instagram-publishing/scripts/ig_post.py *)",
+      "Bash(python3 .claude/skills/instagram-publishing/scripts/refresh_token.py *)",
+      "Bash(python3 .claude/skills/instagram-publishing/scripts/notify.py *)",
+      "Bash(python3 .claude/skills/instagram-publishing/scripts/record_post.py *)",
+      "Bash(python3 .claude/skills/system-healthcheck/scripts/check_token.py *)",
+      "Bash(python3 .claude/skills/system-healthcheck/scripts/audit_posts.py *)",
+      "Bash(python3 .claude/skills/system-healthcheck/scripts/check_token.py)",
+      "Bash(python3 .claude/skills/system-healthcheck/scripts/check_grok.py)",
+      "Bash(python3 .claude/skills/system-healthcheck/scripts/audit_posts.py)",
+      "Bash(python3 .claude/skills/instagram-publishing/scripts/refresh_token.py)",
+      "Bash(mkdir -p output/*)",
+      "Bash(bash bin/run_reel.sh)",
+      "Bash(bash bin/run_banner.sh)",
+      "Bash(bash bin/run_healthcheck.sh)"
+    ]
+  }
+}

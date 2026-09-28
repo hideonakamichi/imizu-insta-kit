@@ -1,0 +1,48 @@
+{
+  "generatedAt": "2026-06-20T06:24:13.917Z",
+  "mode": "topic-fallback",
+  "source": "data/topics.json",
+  "databaseTarget": "threads_drafts",
+  "personaAgent": "threads-draft-strategist",
+  "skill": "threads-growth",
+  "siteUrl": "https://example.com",
+  "limits": {
+    "maxThreadsChars": 500,
+    "drafts": 1
+  },
+  "profileSummary": {
+    "active": false
+  },
+  "historySummary": {
+    "source": "data/threads-posts.json",
+    "postsRead": 0,
+    "recentStrategies": []
+  },
+  "performanceSummary": {
+    "hasData": false,
+    "strategies": [],
+    "nextExperiment": "初期運用では複数の切り口を同数投稿して比較"
+  },
+  "drafts": [
+    {
+      "topicId": 1,
+      "topicTitle": "あなたのテーマ",
+      "url": "https://example.com/?utm_source=threads&utm_medium=social&utm_campaign=daily_posts&utm_content=topic_01",
+      "chars": 75,
+      "status": "draft",
+      "strategy": "topic-fallback",
+      "hookType": "plain",
+      "audience": "想定読者",
+      "ctaType": "engage",
+      "hypothesis": "テーマを決めて発信を続けると認知が積み上がる",
+      "targetMetric": "保存・返信",
+      "body": "あなたのテーマについて、今日はひとつだけ。\n\ntopic-profile.json を設定すると、ここは使われません\n\nキーワード1 / キーワード2",
+      "text": "あなたのテーマについて、今日はひとつだけ。\n\ntopic-profile.json を設定すると、ここは使われません\n\nキーワード1 / キーワード2",
+      "metadata": {
+        "source": "data/topics.json",
+        "plannedBy": "topic-fallback",
+        "note": "topic-profile.json を active にすると、文体模倣の本格運用に切り替わります"
+      }
+    }
+  ]
+}

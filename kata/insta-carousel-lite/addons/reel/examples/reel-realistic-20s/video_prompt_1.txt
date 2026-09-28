@@ -1,0 +1,29 @@
+Create a complete 10.000-second photorealistic Japanese cinematic vertical (9:16) short video for an information account that helps parents of children who do not attend regular school. This is PART 1 of a 2-part continuous reel; end on a content shot, NOT an end card.
+
+STYLE LOCK (identical across all shots — do not drift):
+Photorealistic cinematic vertical video, shot like a high-end Japanese lifestyle commercial: soft natural morning light, warm gentle color grade, shallow depth of field, calm slow camera movement (slow push-in or gentle drift only, no shaky handheld).
+Locations are real Japanese environments (home, school, bright modern free-school interior). Warm, reassuring, hopeful mood — never dark, never sad, never alarming.
+People may appear ONLY as hands and forearms (cropped at the wrist or forearm) — never a head, never a face, never a torso, never a back. If a shot would need a body, crop it out of frame instead. No uniform crests, no school names, no signage, no identifiable buildings.
+On-screen Japanese text style (identical on every shot): very bold modern Japanese Gothic typeface, white glyphs with a thin dark-navy outline and a subtle soft shadow, large, centered horizontally. Text must be perfectly readable against the footage.
+Negative: no logos, no watermarks, no brand names, no recognizable real person or face, no fear-inducing imagery, no crying, no darkness, no rain, no clutter.
+Never a mincho/serif face — every phrase in every shot uses the same bold Gothic face.
+Do not let the style drift between shots.
+
+[Shot 1] 00:00.000-00:03.000
+Interior, morning. A child's tidy study desk by a bright window, warm sunlight, a red randoseru school backpack resting on the chair. Slow gentle push-in. Large white outlined Japanese text appears in two stages, centered:
+"学校を休む"
+then
+"それは逃げ？"
+
+[Shot 2] 00:03.000-00:06.000
+Cut to a quiet, empty Japanese school classroom seen in soft daylight, desks in neat rows, gentle drift. The mood stays calm and neutral, not sad. Large white outlined Japanese text appears in two stages:
+"不登校は"
+"選択肢のひとつ"
+
+[Shot 3] 00:06.000-00:10.000
+Cut to a bright, modern free-school interior: warm wooden tables, bookshelves, green plants, colorful learning materials, big windows with daylight. Slow push-in. Large white outlined Japanese text appears in two stages:
+"フリースクールは"
+"全国500か所以上"
+Keep this shot on screen until exactly 10.000 seconds. Do not fade to black. Do not add a closing card.
+
+overall_soundscape: subtle realistic ambience only — soft morning birds and room tone in Shot 1, quiet room ambience in Shot 2, faint pleasant indoor ambience in Shot 3. Very low volume. No narration. No spoken words. No dialogue. No background music. No vocals.

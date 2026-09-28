@@ -1,0 +1,14 @@
+# 広告クリエイティブ Lite — Python依存
+#
+# インストール:
+#   py -m venv .venv          (Mac: python3 -m venv .venv)
+#   .venv\Scripts\Activate.ps1  (Mac: source .venv/bin/activate)
+#   pip install -r requirements.txt
+
+# --- Analyze ステージ（.claude/skills/analyze-toolkit/scripts/analyze.py） ---
+numpy                 # ベクトル演算・PCA
+matplotlib            # concept_map.png の可視化
+google-genai          # Gemini Embedding (gemini-embedding-001)
+
+# --- Banner / LP画像 ステージ ---
+# 画像生成は Gemini の REST API を urllib で直接呼ぶため、追加ライブラリは不要

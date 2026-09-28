@@ -1,0 +1,1285 @@
+/* サイト共通 — デザイントークン
+   方針: 信頼感 (行政情報) × あたたかさ (当事者向け) / 可読性最優先 / スマホファースト */
+:root {
+  --bg: #faf9f7;
+  --surface: #ffffff;
+  --text: #2d2a26;
+  --text-soft: #5e5854;
+  --line: #e8e4df;
+  --brand: #e05a7a;        /* ローズ: あたたかさの主役 */
+  --brand-soft: #fdf2f5;
+  --brand-deep: #9b324c;   /* ★ローズ濃色 = 「押せる」の合図。リンク・クリックできる要素にだけ使う★ */
+  --heading: #2d2a26;      /* 押せない見出し・ラベル。ローズと混ざるとリンクが埋もれるため分けている */
+  --accent-green: #e3f4e6; /* 藤井先生バブル */
+  --warn: #d84040;
+  --warn-soft: #fdf0ef;
+  --info: #3b74c4;
+  --info-soft: #eef4fc;
+  --mark: #fdeb9c;
+  --radius: 14px;
+  --maxw: 760px;
+}
+
+* { box-sizing: border-box; }
+html {
+  -webkit-text-size-adjust: 100%; scroll-behavior: smooth;
+  /* 追従ヘッダーの実測高: 320px→62px / 375〜430px→68px / 640px以上→78px。
+     いちばん高いケース + 少し余白で 86px に統一する (下の個別上書きは削除済み) */
+  scroll-padding-top: 86px;
+  /* ★rem の基準はここ (body ではない)。components/*.module.css の rem もここに連動する。
+     実測 (375px): こども家庭庁 本文 16px / 行間 2.0、サンキュ! 記事本文 15px / 行間 1.8。
+     当サイトの読者は「子どもを見ながら片手・屋外・時間がない」条件で読むため、
+     両者より一段上の 17px を基準にする (ブラウザ既定 16px の 106.25%)。
+     上限の根拠: 375px 幅・main の左右 padding 16px で本文の行幅は 343px。
+     17px なら 1行 20.2 文字で、日本語スマホ本文の読みやすい範囲 (20〜26字) の下端に収まる。
+     これ以上上げると 20 字を割って、かえって読みにくくなる。
+     px ではなく % にしているのは、ブラウザの文字サイズ設定を尊重するため */
+  font-size: 106.25%;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Hiragino Sans', 'Yu Gothic UI', 'Yu Gothic', Meiryo, system-ui, sans-serif;
+  line-height: 1.9;
+  font-size: 1rem;
+}
+a { color: var(--brand-deep); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+/* ★色の使い分け★ ローズ (--brand-deep) は「押せる」の合図。押せない見出し・強調は --heading。
+   本文中のリンクは下線を太めにして、まわりの太字と見分けられるようにする */
+.article a, .box a, .faq-a a { text-decoration-thickness: 2px; font-weight: 700; }
+img { max-width: 100%; height: auto; }
+
+/* ---------- レイアウト ---------- */
+.site-header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+  position: sticky; top: 0; z-index: 10;
+}
+.site-header .inner {
+  max-width: var(--maxw); margin: 0 auto; padding: 14px 16px;
+  display: flex; align-items: center; gap: 10px;
+}
+.site-logo { font-weight: 800; font-size: 1.08rem; color: var(--text); text-decoration: none; letter-spacing: .02em; }
+.site-logo .dot { color: var(--brand); }
+.site-tag { font-size: .78rem; color: var(--text-soft); }
+
+main { max-width: var(--maxw); margin: 0 auto; padding: 24px 16px 64px; }
+
+.site-footer {
+  border-top: 1px solid var(--line); background: var(--surface);
+  margin-top: 40px;
+}
+.site-footer .inner {
+  max-width: var(--maxw); margin: 0 auto; padding: 24px 16px;
+  font-size: .82rem; color: var(--text-soft); line-height: 1.7;
+}
+
+/* ---------- トップページ ---------- */
+.hero { padding: 18px 0 10px; }
+.hero h1 { font-size: 1.5rem; line-height: 1.5; margin: 0 0 8px; }
+.hero h1 em { font-style: normal; color: var(--brand-deep); }
+.hero p { color: var(--text-soft); font-size: .95rem; margin: 0; }
+
+.cat-section { margin-top: 30px; }
+.cat-title {
+  /* カテゴリ見出し。リンクではないので --heading。右の罫線でローズ感は保つ */
+  font-size: .9rem; font-weight: 700; color: var(--heading);
+  letter-spacing: .08em; margin: 0 0 10px; display: flex; align-items: center; gap: 8px;
+}
+.cat-title::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+
+.card-list { display: grid; gap: 12px; grid-template-columns: 1fr; padding: 0; margin: 0; list-style: none; }
+.card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 16px 18px; display: block; text-decoration: none; color: var(--text);
+  transition: border-color .15s, box-shadow .15s;
+}
+.card:hover { border-color: var(--brand); box-shadow: 0 2px 12px rgba(224, 90, 122, .1); }
+.card h3 { margin: 0 0 6px; font-size: 1rem; line-height: 1.6; color: var(--brand-deep); }
+.card p { margin: 0; font-size: .9rem; color: var(--text-soft); line-height: 1.7;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.card .meta { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px; }
+
+.badge {
+  display: inline-block; font-size: .76rem; font-weight: 700;
+  padding: 2px 9px; border-radius: 999px; line-height: 1.6;
+}
+.badge-cat { background: var(--brand-soft); color: var(--brand-deep); }
+.badge-scope-all { background: var(--info-soft); color: var(--info); }
+.badge-scope-bereaved { background: #f3eefc; color: #6d4fa3; }
+.badge-amount { background: #f5f1ec; color: #7a6a52; }
+
+/* ---------- 記事ページ ---------- */
+.article-header { margin-bottom: 22px; }
+.article-header h1 {
+  font-size: 1.45rem; line-height: 1.6; margin: 0 0 10px;
+  border-left: 5px solid var(--brand); padding-left: 12px;
+}
+.article-meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.article-updated { font-size: .8rem; color: var(--text-soft); }
+
+.article h2 {
+  font-size: 1.22rem; line-height: 1.6; margin: 2.4em 0 .8em;
+  background: var(--brand-soft); border-radius: 10px; padding: 10px 14px;
+}
+.article h3 { font-size: 1rem; margin: 1.8em 0 .6em; }
+.article mark { background: var(--mark); padding: 0 2px; border-radius: 2px; }
+.article img { border-radius: 12px; border: 1px solid var(--line); margin: 14px 0; }
+
+/* ---------- 表 (レスポンシブ) ----------
+   markdown.js の rehypeResponsiveTables が
+     <div class="table-scroll table-cards|table-scroll-only" style="--table-cols:N">
+       <table>… 各 td に data-label="列の見出し" …</table>
+     </div>
+   の形に整形している。ここはその表示だけを担当する。 */
+.article table {
+  border-collapse: collapse; width: 100%; margin: 16px 0;
+  background: transparent; font-size: .92rem; line-height: 1.7;
+}
+.article th, .article td {
+  border: 1px solid var(--line); padding: 9px 12px; text-align: left;
+  min-width: 90px; /* 1列の下限。これ以下に潰れそうなら table 側の min-width で横スクロールに逃がす */
+  /* 出典 URL のような切れ目のない長い文字列が1セルにあると、
+     表全体が極端に横に広がって他の列が数文字幅まで潰れる。途中で折り返させる */
+  overflow-wrap: anywhere;
+}
+.article th { background: var(--brand-soft); font-weight: 700; }
+/* td は背景を持たせない。ラッパー(.table-scroll)の白と影が透けるようにするため */
+
+.article .table-scroll {
+  margin: 16px 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  background-color: var(--surface);
+  /* 横スクロールできることを示す影。
+     local レイヤー(白いフェード)が中身と一緒に動き、端まで来ると scroll レイヤーの影を隠す
+     = スクロールの余地があるときだけ端に影が出る */
+  background-image:
+    linear-gradient(to right, var(--surface), rgba(255, 255, 255, 0)),
+    linear-gradient(to left, var(--surface), rgba(255, 255, 255, 0)),
+    linear-gradient(to right, rgba(45, 42, 38, .16), rgba(45, 42, 38, 0)),
+    linear-gradient(to left, rgba(45, 42, 38, .16), rgba(45, 42, 38, 0));
+  background-position: left center, right center, left center, right center;
+  background-size: 26px 100%, 26px 100%, 14px 100%, 14px 100%;
+  background-repeat: no-repeat;
+  background-attachment: local, local, scroll, scroll;
+}
+.article .table-scroll:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+/* 列が潰れる前にスクロールさせる: 1列あたり最低 130px を確保する。
+   収まるときは width:100% が勝つので、通常の表のまま (デスクトップは従来どおり) */
+.article .table-scroll table { margin: 0; min-width: calc(var(--table-cols, 2) * 130px); }
+
+/* ---- モバイル ----
+   640px は本サイト共通のブレークポイント (これ未満をスマホとして扱う) */
+@media (max-width: 639px) {
+  /* 2列の表 (「用語 | 説明」型) はカード化しないが、auto レイアウトのままだと
+     長文の説明列に幅を持っていかれて左のラベル列が2〜3文字ずつ折り返される。
+     左列の幅を明示して、どちらの列も読める配分にする (デスクトップは従来どおり auto) */
+  .article .table-scroll-only th:first-child,
+  .article .table-scroll-only td:first-child { width: 40%; }
+
+  /* 3列以上の表は 1行 = 1カードに積み上げる */
+  .article .table-cards { overflow: visible; background: none; }
+  .article .table-cards table { display: block; width: 100%; min-width: 0; font-size: .94rem; }
+  .article .table-cards tbody { display: block; }
+  /* 見出し行は視覚的には隠すが、スクリーンリーダーには残す (role は markdown.js が明示済み) */
+  .article .table-cards thead {
+    position: absolute; width: 1px; height: 1px;
+    overflow: hidden; clip-path: inset(50%); white-space: nowrap;
+  }
+  .article .table-cards tr {
+    display: block; margin: 0 0 12px; overflow: hidden;
+    background: var(--surface);
+    border: 1px solid var(--line); border-radius: 12px;
+  }
+  .article .table-cards tr:last-child { margin-bottom: 0; }
+  .article .table-cards td {
+    display: block;
+    border: 0; border-top: 1px solid var(--line);
+    padding: 9px 14px; line-height: 1.8;
+  }
+  /* 1列目 = カードの見出し (多くの表で1列目が主語になっている) */
+  .article .table-cards td:first-child {
+    border-top: 0; background: var(--brand-soft);
+    font-weight: 700; color: var(--brand-deep);
+  }
+  /* data-label は markdown.js が付けた「その列の見出し」。情報を落とさないため1列目にも出す */
+  .article .table-cards td[data-label]::before {
+    content: attr(data-label);
+    display: block; font-size: .78rem; font-weight: 700; line-height: 1.6;
+    color: var(--text-soft); letter-spacing: .02em;
+  }
+  .article .table-cards td:first-child[data-label]::before {
+    font-weight: 600; color: var(--brand-deep); opacity: .7;
+  }
+}
+
+/* DialogueBubble */
+.dialogue-bubble { display: flex; flex-direction: column; margin: 16px 0; max-width: 90%; }
+.dialogue-bubble-left { align-items: flex-start; }
+.dialogue-bubble-right { align-items: flex-end; margin-left: auto; }
+.dialogue-bubble .who { font-size: .78rem; color: var(--text-soft); margin-bottom: 3px; padding: 0 4px; }
+.dialogue-bubble .talk {
+  padding: 13px 16px; border-radius: 16px; font-size: .98rem; line-height: 1.9;
+}
+.dialogue-bubble-left .talk { background: var(--surface); border: 1px solid var(--line); border-top-left-radius: 5px; }
+.dialogue-bubble-right .talk { background: var(--accent-green); border-top-right-radius: 5px; }
+/* 文字を上げたぶん吹き出しの行幅が足りなくなる (375px で 1行 16.6 字まで落ちた)。
+   スマホだけ横幅と左右 padding を詰めて、1行 18 字前後を確保する。
+   吹き出しは会話文で1発話が短いため、本文の 20 字より少なくても読みにくくならない */
+@media (max-width: 639px) {
+  .dialogue-bubble { max-width: 96%; }
+  .dialogue-bubble .talk { padding: 12px 14px; }
+}
+
+/* ディレクティブボックス */
+.box { border-radius: 12px; margin: 20px 0; overflow: hidden; background: var(--surface); font-size: .95rem; }
+.box .box-title { font-weight: 700; padding: 8px 14px; font-size: .92rem; color: #fff; }
+.box > :not(.box-title) { margin: 12px 16px; }
+.box ul, .box ol { padding-left: 1.4em; }
+.box.pointbox { border: 2px solid var(--brand); }
+.box.pointbox .box-title { background: var(--brand); }
+.box.warning { border: 2px solid var(--warn); background: var(--warn-soft); }
+.box.warning .box-title { background: var(--warn); }
+.box.steps { border: 2px solid var(--info); }
+.box.steps .box-title { background: var(--info); }
+.box.steps ol { counter-reset: step; list-style: none; padding-left: .4em; }
+.box.steps ol > li { counter-increment: step; position: relative; padding-left: 2.2em; margin: 10px 0; }
+.box.steps ol > li::before {
+  content: counter(step); position: absolute; left: 0; top: .15em;
+  width: 1.6em; height: 1.6em; border-radius: 50%;
+  background: var(--info); color: #fff; font-size: .8em; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* FAQ */
+.faq-section { margin-top: 36px; }
+.faq-section h2 { font-size: 1.22rem; background: var(--brand-soft); border-radius: 10px; padding: 10px 14px; }
+.faq-item {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+  margin: 10px 0; overflow: hidden;
+}
+.faq-item summary {
+  cursor: pointer; padding: 13px 16px; font-weight: 700; font-size: .95rem; line-height: 1.7;
+  list-style: none; position: relative; padding-right: 2.4em;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+'; position: absolute; right: 16px; top: 50%; transform: translateY(-50%);
+  color: var(--brand); font-size: 1.2rem; font-weight: 700;
+}
+.faq-item[open] summary::after { content: '−'; }
+.faq-item .faq-a { padding: 0 16px 14px; font-size: .94rem; color: var(--text); border-top: 1px dashed var(--line); padding-top: 12px; }
+
+/* 免責 (記事末尾の ※本文) */
+.article > p:last-of-type:has(> em),
+.disclaimer {
+  background: #fffaf0; border: 1px solid #f3e3c3; border-radius: 10px;
+  padding: 12px 15px; font-size: .84rem; color: #8a6d3b; line-height: 1.8;
+}
+
+.back-link { display: inline-block; margin-top: 30px; font-size: .92rem; }
+
+@media (min-width: 640px) {
+  /* = 17.5px。行幅に余裕がある PC はもう一段上げる (760px 幅で 1行 41 字) */
+  html { font-size: 109.375%; }
+  .hero h1 { font-size: 1.75rem; }
+  .card-list { grid-template-columns: 1fr 1fr; }
+  .article-header h1 { font-size: 1.62rem; }
+}
+
+/* ---------- キャラクター紹介 ---------- */
+.cast-intro {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 14px 16px; margin: 0 0 24px; display: grid; gap: 12px; font-size: .9rem;
+}
+.cast-member { display: flex; gap: 10px; align-items: flex-start; }
+.cast-member strong { font-size: .94rem; }
+.cast-member p { margin: 2px 0 0; color: var(--text-soft); line-height: 1.7; }
+.cast-avatar {
+  flex: none; width: 38px; height: 38px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 1rem; color: #fff;
+  object-fit: cover; overflow: hidden;
+}
+.cast-avatar.big { width: 52px; height: 52px; font-size: 1.3rem; }
+.cast-avatar-misaki { background: var(--brand); }
+.cast-avatar-fujii { background: #4c9a63; }
+.cast-more { font-size: .84rem; justify-self: end; }
+
+.characters-page .char-card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 18px 20px; margin: 18px 0;
+}
+.characters-page .char-head { display: flex; gap: 14px; align-items: center; margin-bottom: 8px; }
+.characters-page .char-head h2 { margin: 0; font-size: 1.15rem; }
+.characters-page .char-role { margin: 2px 0 0; font-size: .84rem; color: var(--heading); font-weight: 700; }
+.characters-page ul { padding-left: 1.3em; margin: 8px 0 0; }
+.characters-page li { margin: 6px 0; font-size: .95rem; }
+.char-note {
+  background: var(--brand-soft); border-radius: 10px; padding: 12px 15px;
+  font-size: .84rem; color: var(--text-soft); line-height: 1.8;
+}
+
+@media (min-width: 640px) {
+  .cast-intro { grid-template-columns: 1fr 1fr; }
+  .cast-intro .cast-more { grid-column: 1 / -1; }
+}
+
+/* ---------- 目次 (TOC) ---------- */
+.toc {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  margin: 0 0 20px; overflow: hidden;
+}
+.toc-summary {
+  cursor: pointer; list-style: none; position: relative;
+  padding: 11px 40px 11px 16px;
+  font-weight: 700; font-size: .94rem; line-height: 1.6;
+  color: var(--brand-deep); background: var(--brand-soft);
+}
+.toc-summary::-webkit-details-marker { display: none; }
+.toc-summary::after {
+  content: '−'; position: absolute; right: 16px; top: 50%; transform: translateY(-50%);
+  color: var(--brand); font-size: 1.2rem; font-weight: 700;
+}
+.toc-details:not([open]) .toc-summary::after { content: '+'; }
+.toc-list {
+  counter-reset: toc; list-style: none;
+  margin: 0; padding: 12px 16px 14px;
+  font-size: .92rem; line-height: 1.7;
+}
+.toc-list > li {
+  counter-increment: toc; position: relative; padding-left: 2em; margin: 7px 0;
+}
+.toc-list > li::before {
+  content: counter(toc); position: absolute; left: 0; top: .2em;
+  width: 1.5em; height: 1.5em; border-radius: 50%;
+  background: var(--brand-soft); color: var(--brand-deep);
+  font-size: .78em; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+.toc-list a { color: var(--text); text-decoration: none; }
+.toc-list a:hover { color: var(--brand-deep); text-decoration: underline; }
+
+/* ---------- ヘッダーナビ ---------- */
+.site-header .inner { flex-wrap: wrap; row-gap: 4px; }
+.site-nav { margin-left: auto; display: flex; gap: 14px; }
+.site-nav a {
+  font-size: .84rem; font-weight: 700; color: var(--text-soft);
+  text-decoration: none; white-space: nowrap;
+}
+.site-nav a:hover { color: var(--brand-deep); text-decoration: underline; }
+/* scroll-padding-top は html の 86px に一本化した (2026-07-26)。ここの上書きは削除 */
+
+/* ---------- 基礎知識ワード集 ---------- */
+.words-level-note { margin: -4px 0 12px; font-size: .84rem; color: var(--text-soft); line-height: 1.7; }
+.words-empty {
+  background: var(--surface); border: 1px dashed var(--line); border-radius: var(--radius);
+  padding: 20px; text-align: center; font-size: .94rem; color: var(--text-soft);
+}
+
+.word-card h3 { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; }
+.word-reading { font-size: .78rem; font-weight: 400; color: var(--text-soft); letter-spacing: .04em; }
+.word-card p { -webkit-line-clamp: 3; }
+.word-card-pending { color: var(--text-soft); background: #fbfaf9; }
+.word-card-pending h3 { color: var(--text-soft); }
+.word-card-pending:hover { border-color: var(--line); box-shadow: none; }
+.badge-pending { background: #f0eeeb; color: var(--text-soft); font-weight: 700; }
+
+/* 用語ページ */
+.word-breadcrumb { margin: 0 0 10px; font-size: .82rem; }
+.word-breadcrumb a { color: var(--text-soft); }
+.word-page .article-header h1 { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px; }
+.word-page .article-header h1 .word-reading { font-size: .84rem; }
+
+.word-def {
+  background: var(--brand-soft); border: 2px solid var(--brand);
+  border-radius: var(--radius); padding: 14px 16px; margin: 0 0 26px;
+}
+.word-def-label {
+  display: inline-block; background: var(--brand); color: #fff;
+  font-size: .76rem; font-weight: 700; padding: 2px 10px; border-radius: 999px;
+}
+.word-def p { margin: 8px 0 0; font-size: 1rem; line-height: 1.9; font-weight: 700; }
+
+.word-related { margin-top: 40px; }
+.word-related h2 {
+  font-size: 1.22rem; background: var(--brand-soft);
+  border-radius: 10px; padding: 10px 14px; margin: 0 0 14px;
+}
+
+/* ---------- 座談会 (roundtable) ----------
+   ※ このブロックは globals.css の末尾に追記する運用。上書きしたい既存ルールがあるため順序を保つこと */
+:root {
+  --akari: #e8a33d;        /* あかり: 事実婚を選択した相手役 */
+  --akari-soft: #fff8e6;   /* あかりバブル */
+  --akari-line: #f0e0bb;
+}
+
+.rt-empty {
+  background: var(--surface); border: 1px dashed var(--line); border-radius: var(--radius);
+  padding: 20px; text-align: center; font-size: .94rem; color: var(--text-soft);
+}
+
+.rt-card p { -webkit-line-clamp: 3; }
+.rt-card-pending { color: var(--text-soft); background: #fbfaf9; }
+.rt-card-pending h3 { color: var(--text-soft); }
+.rt-card-pending:hover { border-color: var(--line); box-shadow: none; }
+.badge-theme { background: #fdf4e3; color: #96682a; }
+.badge-person {
+  background: #f4f1ee; color: var(--text-soft); font-weight: 700;
+}
+
+/* 座談会ページ */
+.rt-breadcrumb { margin: 0 0 10px; font-size: .82rem; }
+.rt-breadcrumb a { color: var(--text-soft); }
+.rt-lead {
+  margin: 0 0 22px; font-size: .98rem; line-height: 1.9; color: var(--text);
+  border-left: 3px solid var(--brand-soft); padding-left: 12px;
+}
+
+/* 参加者紹介 (制度記事の .cast-intro とは別物) */
+.rt-cast {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 15px 16px; margin: 0 0 26px; font-size: .9rem;
+}
+.rt-cast-label {
+  margin: 0 0 12px; font-size: .78rem; font-weight: 700; letter-spacing: .08em;
+  color: var(--brand-deep);
+}
+.rt-cast-members { display: grid; gap: 14px; }
+.rt-cast-member { display: flex; gap: 10px; align-items: flex-start; }
+.rt-cast-member strong { font-size: .94rem; }
+.rt-cast-role {
+  display: inline-block; margin-left: 8px; font-size: .78rem; color: var(--text-soft);
+}
+.rt-cast-member p { margin: 2px 0 0; color: var(--text-soft); line-height: 1.7; }
+.rt-cast-advisor {
+  display: flex; gap: 8px; align-items: center;
+  margin: 14px 0 0; padding-top: 12px; border-top: 1px dashed var(--line);
+  font-size: .82rem; color: var(--text-soft); line-height: 1.7;
+}
+.rt-cast-advisor .cast-avatar { width: 24px; height: 24px; font-size: .76rem; }
+.rt-cast-note {
+  margin: 10px 0 0; font-size: .78rem; color: var(--text-soft); line-height: 1.7;
+}
+.cast-avatar-akari { background: var(--akari); }
+
+/* あかりのバブル (左側だが色を変える) */
+.dialogue-bubble-akari .talk {
+  background: var(--akari-soft); border: 1px solid var(--akari-line); border-top-left-radius: 5px;
+}
+
+.rt-related { margin-top: 40px; }
+.rt-related h2 {
+  font-size: 1.22rem; background: var(--brand-soft);
+  border-radius: 10px; padding: 10px 14px; margin: 0 0 14px;
+}
+
+@media (min-width: 640px) {
+  .rt-cast-members { grid-template-columns: 1fr 1fr; }
+}
+
+/* ---------- ロゴ2段組み + ヘッダーナビ2項目 (基礎知識・座談会) ----------
+   ※ 既存の .site-logo / .site-nav ルールを上書きするため、必ず末尾に置くこと */
+.site-logo {
+  display: inline-flex; flex-direction: column;
+  line-height: 1.25; text-decoration: none;
+}
+.site-logo-pre {
+  font-size: .72rem; font-weight: 700; letter-spacing: .06em;
+  color: var(--brand-deep); white-space: nowrap;
+}
+.site-logo-main {
+  font-size: 1.08rem; font-weight: 800; letter-spacing: .02em;
+  color: var(--text); white-space: nowrap;
+}
+/* 狭い端末ではキャッチコピーを隠し、ロゴ + ナビ2項目を優先する */
+@media (max-width: 640px) {
+  .site-tag { display: none; }
+}
+/* ★ヘッダーの幅は「全角=1em」で見積もること★
+   Windows の Yu Gothic UI は全角が狭いので、開発機の Chrome で測ると 30〜40px 甘く出る。
+   実機 (iOS の Hiragino Sans / Android の Noto Sans JP) は全角ちょうど 1em。
+   下の数値は font-family を MS Gothic に差し替えた最悪ケースでの実測値。 */
+@media (max-width: 430px) {
+  .site-header .inner { padding-left: 11px; padding-right: 11px; gap: 6px; }
+  .site-logo-pre { font-size: .72rem; letter-spacing: .02em; }
+  .site-logo-main { font-size: .94rem; letter-spacing: 0; }
+  .site-nav { gap: 9px; }
+  .site-nav a { font-size: .74rem; }
+  /* 375px 実測 (全角1em): ロゴ 191px + ナビ 121px、ロゴ〜ナビの余白 41px で1行に収まる */
+}
+/* 320px はロゴ+ナビ2項目で幅が飽和しており、これ以上大きくすると必ず2段になる。
+   ここだけは従来サイズを維持し、本文側の底上げ (html 17px) で読みやすさを稼ぐ。
+   320px 実測 (全角1em): ロゴ 183px + ナビ 112px、余白 5px でぎりぎり1行 */
+@media (max-width: 359px) {
+  .site-header .inner { padding-left: 10px; padding-right: 10px; gap: 4px; }
+  .site-logo-pre { font-size: .64rem; }
+  .site-logo-main { font-size: .9rem; }
+  .site-nav { gap: 8px; }
+  .site-nav a { font-size: .72rem; }
+  /* .site-logo / .site-logo-mark はファイル末尾のロゴブロックで指定 (順序の都合) */
+}
+/* scroll-padding-top は html の 86px に一本化した (2026-07-26)。ここの上書きは削除 */
+
+.site-footer-nav {
+  display: flex; flex-wrap: wrap; gap: 8px 18px;
+  margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line);
+}
+.site-footer-nav a {
+  font-size: .82rem; font-weight: 700; color: var(--text-soft);
+  text-decoration: none; white-space: nowrap;
+}
+.site-footer-nav a:hover { color: var(--brand-deep); text-decoration: underline; }
+
+/* ---------- 当サイトについて (/about) ---------- */
+/* サイト全体の理念を一言で表す行。運営者の言葉なので、
+   まわりの説明文より一段大きく、ゆったり置く */
+.about-catch {
+  margin: 0 0 22px; font-size: 1.3rem; font-weight: 800;
+  line-height: 1.6; letter-spacing: .01em; color: var(--heading);
+}
+.about-lead {
+  margin: 0 0 30px; font-size: .98rem; line-height: 1.9;
+  border-left: 3px solid var(--brand-soft); padding-left: 12px;
+}
+.about-section { margin: 0 0 34px; }
+.about-section h2 {
+  font-size: 1.22rem; background: var(--brand-soft);
+  border-radius: 10px; padding: 10px 14px; margin: 0 0 14px;
+}
+
+.about-owner {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 16px 18px;
+}
+.about-owner-facts { margin: 0; font-size: .95rem; }
+.about-owner-facts dt {
+  font-size: .78rem; font-weight: 700; letter-spacing: .06em;
+  color: var(--brand-deep); margin: 0;
+}
+.about-owner-facts dd { margin: 2px 0 14px; line-height: 1.7; }
+.about-owner-facts dd:last-child { margin-bottom: 0; }
+.about-owner-reading { font-size: .82rem; color: var(--text-soft); margin-left: 2px; }
+
+.about-message p { margin: 0 0 16px; font-size: .98rem; line-height: 2; }
+.about-message p:last-child { margin-bottom: 0; }
+.about-signature {
+  margin-top: 22px; text-align: right;
+  font-size: .86rem; color: var(--text-soft);
+}
+
+/* ★ ページ内で最も読ませたいブロック */
+.about-check {
+  margin: 34px 0; font-size: 1rem;
+  box-shadow: 0 2px 14px rgba(224, 90, 122, .16);
+  background: var(--brand-soft);
+}
+.about-check .box-title {
+  font-size: .98rem; padding: 11px 16px; letter-spacing: .02em;
+}
+.about-check.box > p {
+  margin: 14px 18px; font-size: 1.05rem; line-height: 2.05;
+}
+.about-check.box > p strong { color: var(--heading); }
+.about-check.box > p:last-child {
+  margin-bottom: 18px; padding-top: 14px;
+  border-top: 1px dashed var(--brand);
+}
+
+.about-policy { margin: 0; padding-left: 1.3em; font-size: .96rem; }
+.about-policy li { margin: 8px 0; line-height: 1.85; }
+
+@media (min-width: 640px) {
+  .about-check.box > p { font-size: 1.1rem; }
+}
+
+/* ---------- トップページ 制度カードのサムネイル (2026-07-25 追加) ---------- */
+/* .card は /words /roundtable でもサムネイル無しで使われるため、.card 自体の
+   padding は変更せず、.card-thumb をネガティブマージンでカード端まで逃がす。
+   これで :has() 非対応環境でも他ページのカードに一切影響しない。 */
+.card-thumb {
+  display: block;
+  margin: -16px -18px 14px;      /* .card の padding: 16px 18px を打ち消す */
+  height: 150px;
+  /* 画像未配信 / 読み込み失敗時のフォールバック地色 (生成画像の背景色と同色) */
+  background: #fbebec;
+  border-bottom: 1px solid var(--line);
+  /* カードの外側 radius 14px - border 1px = 内側 13px */
+  border-top-left-radius: calc(var(--radius) - 1px);
+  border-top-right-radius: calc(var(--radius) - 1px);
+  overflow: hidden;
+}
+.card-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  /* alt="" なので読み込み失敗時は img が潰れ、上の background だけが残る */
+  color: transparent;
+}
+.card-body { display: block; }
+
+@media (min-width: 640px) {
+  .card-thumb { height: 140px; }
+}
+
+/* ---------- 登場人物紹介ページ: 大きめイラスト ---------- */
+.characters-page .char-hero {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  margin: 0 auto 14px;
+  border-radius: 12px;
+  background: #fbeef0;   /* 画像読み込み前後で背景色を揃える */
+  border: 1px solid var(--line);
+}
+.characters-page .char-head > div { min-width: 0; }
+.characters-page .char-card { padding-top: 16px; }
+
+@media (max-width: 420px) {
+  .characters-page .char-card { padding: 14px 14px 16px; }
+  .characters-page .char-head { gap: 10px; }
+  .characters-page .char-head h2 { font-size: 1.05rem; }
+  .characters-page .cast-avatar.big { width: 44px; height: 44px; }
+}
+
+/* ---------- トップページ: カテゴリ見出しの一言説明 ----------
+   .cat-title は「カテゴリ名 + 説明 + ::after の横線」の flex 一列。
+   説明は nowrap なので、幅が足りないときだけ行が折り返る (説明自体は常に1行) */
+.cat-title { flex-wrap: wrap; row-gap: 2px; }
+.cat-name { flex: 0 0 auto; }
+.cat-desc {
+  flex: 0 1 auto;
+  font-size: .78rem;
+  font-weight: 400;
+  color: var(--text-soft);
+  letter-spacing: .02em;
+  white-space: nowrap;
+}
+.cat-desc::before {
+  content: '—';
+  margin-right: 5px;
+  color: var(--line);
+}
+/* 誤解が実害につながる語のみ強調 (貸付の「返済が必要」) */
+.cat-desc-warn { font-style: normal; font-weight: 700; color: var(--warn); }
+/* 横線は説明の右に残す。折り返した行でも潰れないよう最低幅を確保 */
+.cat-title::after { flex: 1 1 32px; min-width: 24px; }
+
+@media (max-width: 359px) {
+  .cat-desc { font-size: .76rem; }
+  .cat-desc::before { margin-right: 4px; }
+}
+
+/* ---------- トップページ: ファーストビューのカテゴリチップ ----------
+   溢れたら折り返す (横スクロールにはしない)。タップ領域は 40px 以上を確保 */
+.cat-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0 4px;
+}
+.cat-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 14px;
+  border: 1px solid var(--brand);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--brand-deep);
+  font-size: .86rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.cat-chip:hover { background: var(--brand-soft); }
+.cat-chip:active { background: var(--brand-soft); }
+
+/* ---------- LINE 公式アカウントの導線 (components/LineCta.jsx) ----------
+   記事末尾・トップ最下部に置く控えめなカード。押し付けにならないよう
+   ブランドのローズではなく無彩色の面にし、緑はボタンだけに使う */
+.line-cta {
+  margin: 40px 0 8px;
+  padding: 18px 16px 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.line-cta-title {
+  margin: 0 0 8px;
+  font-size: .98rem;
+  font-weight: 700;
+  line-height: 1.6;
+}
+.line-cta-body {
+  margin: 0 0 14px;
+  font-size: .88rem;
+  line-height: 1.85;
+  color: var(--text-soft);
+}
+.line-cta-body strong { color: var(--text); font-weight: 700; }
+.line-cta-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+  padding: 12px 16px;
+  background: #06c755;      /* LINE ブランドカラー */
+  color: #fff;
+  font-size: .95rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 999px;
+  line-height: 1.4;
+}
+.line-cta-btn:hover { background: #05b34c; }
+.line-cta-btn-icon {
+  font-size: .76rem;
+  font-weight: 800;
+  letter-spacing: .06em;
+  padding: 2px 6px;
+  border: 1.5px solid rgba(255, 255, 255, .85);
+  border-radius: 5px;
+}
+.line-cta-note {
+  margin: 12px 0 0;
+  font-size: .78rem;
+  line-height: 1.75;
+  color: var(--text-soft);
+}
+.line-cta-note a { color: var(--text-soft); }
+
+@media (max-width: 374px) {
+  .line-cta { padding: 16px 13px 14px; }
+  .line-cta-title { font-size: .94rem; }
+  .line-cta-body { font-size: .84rem; }
+  .line-cta-btn { font-size: .9rem; padding: 11px 12px; }
+}
+
+/* ---------- プライバシーポリシー ---------- */
+.privacy-page .privacy-lead { font-size: .95rem; color: var(--text-soft); }
+.privacy-page section { margin: 28px 0; }
+.privacy-page h2 {
+  font-size: 1.05rem;
+  border-bottom: 2px solid var(--brand-soft);
+  padding-bottom: 6px;
+  margin-bottom: 10px;
+}
+.privacy-page p, .privacy-page li { font-size: .92rem; line-height: 1.9; }
+.privacy-page ul { padding-left: 1.2em; }
+.privacy-page li { margin-bottom: 6px; }
+.privacy-meta {
+  margin-top: 32px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  font-size: .82rem;
+  color: var(--text-soft);
+}
+
+/* ---------- ヘッダー2項目化に伴うキャッチコピーの再表示 ----------
+   「当サイトについて」をフッターのみに移してナビが2項目になったぶん、
+   .site-tag の非表示ラインを 640px → 480px に下げる (既存ルールを末尾で上書き)。
+   実測 (Chrome, Windows): 375px でキャッチコピーを出すと nav が2段目に折り返して
+   ヘッダーが 60.2px → 88.1px になるため、スマホ幅では引き続き非表示。
+   481px では 1行のまま余白 50.5px (端末フォント差 ~30px を吸収できる) を確保できる。 */
+@media (min-width: 481px) and (max-width: 640px) {
+  .site-tag { display: inline; }
+}
+
+/* ---------- トップページ: 今の時期にやること (components/SeasonalNotice.jsx) ----------
+   ヒーロー直下・カテゴリチップの上に置く、最も目立たせたいブロック。
+   .box.pointbox に近いカードだが、季節の案内であることが分かるよう
+   ブランドのローズを薄く敷いて明るくしている (警告色は使わない)。 */
+.seasonal { margin: 18px 0 4px; }
+.seasonal-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 10px;
+  font-size: .9rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  color: var(--brand-deep);
+}
+.seasonal-title::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+
+.seasonal-list { display: grid; gap: 12px; padding: 0; margin: 0; list-style: none; }
+.seasonal-item {
+  padding: 14px 16px 12px;
+  border: 2px solid var(--brand);
+  border-radius: var(--radius);
+  /* 上から下へ淡いローズ→白。ベタ塗りより軽く見せる */
+  background: linear-gradient(180deg, var(--brand-soft) 0%, var(--surface) 62%);
+}
+.seasonal-period {
+  display: inline-block;
+  margin-bottom: 6px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: var(--brand);
+  color: #fff;
+  font-size: .76rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  line-height: 1.7;
+}
+.seasonal-item-title {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.6;
+}
+.seasonal-body {
+  margin: 0 0 10px;
+  font-size: .9rem;
+  line-height: 1.85;
+  color: var(--text-soft);
+}
+/* リンクは min-height 40px 相当のタップ領域を確保する */
+.seasonal-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 34px;
+  font-size: .92rem;
+  font-weight: 700;
+  color: var(--brand-deep);
+  text-decoration: none;
+  border-bottom: 2px solid var(--brand-soft);
+}
+.seasonal-link:hover { border-bottom-color: var(--brand); }
+
+/* LINE の一言。季節の案内が主役なので、添え物として控えめに */
+.seasonal-line {
+  margin: 10px 0 0;
+  font-size: .84rem;
+  line-height: 1.8;
+  color: var(--text-soft);
+}
+.seasonal-line a { color: var(--brand-deep); font-weight: 700; }
+
+.seasonal-note {
+  margin: 8px 0 0;
+  font-size: .8rem;
+  line-height: 1.75;
+  color: var(--text-soft);
+}
+
+@media (max-width: 374px) {
+  .seasonal-item { padding: 13px 13px 11px; }
+  .seasonal-item-title { font-size: .98rem; }
+  .seasonal-body { font-size: .86rem; }
+}
+
+/* ---------- 免責事項 (/disclaimer) 2026-07-25 追加 ----------
+   ベースは .privacy-page を流用。ここでは
+   ・信頼性の説明にあたる項目 (品質管理・広告) を包む .box.pointbox の文字サイズ調整
+   ・ページ末尾の関連ページリンク
+   だけを足している。 */
+.disclaimer-page .box { margin: 4px 0 0; }
+.disclaimer-page .box p { font-size: .92rem; line-height: 1.9; margin: 12px 16px; }
+.disclaimer-page .box strong { color: var(--heading); }
+
+.disclaimer-related {
+  display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 18px;
+}
+.disclaimer-related a { font-size: .86rem; font-weight: 700; white-space: nowrap; }
+
+.about-disclaimer-link {
+  margin: 12px 0 0; font-size: .92rem; line-height: 1.85; color: var(--text-soft);
+}
+
+/* ---------- 都道府県 (/{pref} と /{pref}/support/{id}) 2026-07-25 追加 ----------
+   47都道府県に自動展開する前提のスタイル。県ごとの色分けなどはしない
+   (県が増えるたびに CSS を触る羽目になるため、見た目は完全に共通) */
+
+/* 県バッジ。カテゴリバッジ (ピンク系) と区別するため青系にする */
+.badge-pref { background: var(--info-soft); color: var(--info); font-weight: 700; }
+
+.pref-eyebrow { margin: 0 0 6px; line-height: 1; }
+.pref-hero h1 { margin-top: 2px; }
+.pref-hero p strong { color: var(--heading); }
+
+/* 記事上部のパンくず。/ ▸ {県}の制度 の2段だけ */
+.pref-breadcrumb {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
+  margin: 0 0 10px; font-size: .82rem; color: var(--text-soft);
+}
+.pref-breadcrumb a { color: var(--text-soft); }
+.pref-breadcrumb span { color: var(--line); }
+
+.pref-scope-note {
+  margin: 10px 0 0; padding: 9px 12px;
+  background: var(--info-soft); border-radius: 10px;
+  font-size: .86rem; line-height: 1.8; color: var(--text);
+}
+.pref-scope-note strong { color: var(--info); }
+
+/* ハブページ下部の「全国の制度も見て」ブロック。地域だけで完結させない導線 */
+.pref-nation {
+  margin-top: 34px; padding: 16px 16px 14px;
+  background: var(--surface); border: 2px solid var(--brand-soft); border-radius: var(--radius);
+}
+.pref-nation h2 { margin: 0 0 8px; font-size: 1.08rem; line-height: 1.6; }
+.pref-nation p { margin: 0; font-size: .9rem; line-height: 1.85; color: var(--text-soft); }
+.pref-nation strong { color: var(--heading); }
+.pref-nation-link {
+  display: inline-flex; align-items: center; min-height: 40px; margin-top: 8px;
+  font-size: .94rem; font-weight: 700; color: var(--brand-deep);
+  text-decoration: none; border-bottom: 2px solid var(--brand-soft);
+}
+.pref-nation-link:hover { border-bottom-color: var(--brand); }
+
+/* 記事末尾の2択導線 (県の一覧 / 全国) */
+.pref-nextlinks { display: grid; gap: 10px; margin-top: 30px; }
+.pref-nextlink {
+  display: block; padding: 13px 14px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+  text-decoration: none; color: var(--text);
+}
+.pref-nextlink:hover { border-color: var(--brand); box-shadow: 0 2px 12px rgba(224, 90, 122, .1); }
+.pref-nextlink-label { display: block; font-size: .98rem; font-weight: 700; color: var(--brand-deep); }
+.pref-nextlink-note { display: block; margin-top: 3px; font-size: .82rem; line-height: 1.7; color: var(--text-soft); }
+
+/* トップの「お住まいの地域の制度」。県が増えても折り返すだけで済む grid */
+.area-lead { margin: 0 0 12px; font-size: .92rem; line-height: 1.85; color: var(--text-soft); }
+.area-lead strong { color: var(--heading); }
+.area-list {
+  display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  padding: 0; margin: 0; list-style: none;
+}
+.area-link {
+  display: flex; flex-direction: column; justify-content: center; gap: 2px;
+  min-height: 56px; padding: 10px 13px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+  text-decoration: none;
+}
+.area-link:hover { border-color: var(--brand); box-shadow: 0 2px 12px rgba(224, 90, 122, .1); }
+.area-link-name { font-size: .98rem; font-weight: 700; color: var(--brand-deep); line-height: 1.5; }
+.area-link-count { font-size: .8rem; color: var(--text-soft); line-height: 1.5; }
+.area-note { margin: 10px 0 0; font-size: .82rem; color: var(--text-soft); }
+
+@media (max-width: 374px) {
+  .area-list { grid-template-columns: 1fr; }
+  .pref-nation { padding: 14px 13px 12px; }
+  .pref-nation h2 { font-size: 1rem; }
+}
+
+/* ---------- ロゴのシンボル追加 (public/logo-symbol.svg と同図形) 2026-07-25 ----------
+   既存の .site-logo は「2段テキストの縦並び」だったので、
+   ここで「シンボル + テキスト」の横並びに組み替える (テキストの2段組みは .site-logo-text へ移動)。
+   ※ 必ず末尾に置くこと (上の .site-logo ルールを上書きするため) */
+.site-logo {
+  flex-direction: row;
+  align-items: center;
+  gap: 7px;
+}
+.site-logo-text {
+  display: inline-flex; flex-direction: column;
+  line-height: 1.25;
+}
+/* マークは2段組みの文字とほぼ同じ高さになる 50px を基準にする (2026-07-26 に 44px から拡大)。
+   小さすぎると親子の抱擁が読み取れず、ただの塊に見えてしまうため */
+.site-logo-mark { flex: 0 0 auto; display: block; width: 50px; height: 50px; }
+
+/* 狭い端末ではシンボルと余白を詰めて、ナビ2項目を1行に保つ */
+@media (max-width: 430px) {
+  .site-logo { gap: 5px; }
+  .site-logo-mark { width: 40px; height: 40px; }
+}
+/* 320px はロゴ+ナビで幅が飽和している。ここだけマークも従来の 34px に戻す
+   (上の max-width:430px より後ろに置くこと。でないと 40px に負ける) */
+@media (max-width: 359px) {
+  .site-logo { gap: 4px; }
+  .site-logo-mark { width: 34px; height: 34px; }
+}
+
+/* シンボルぶん (26px + gap 7px) 横幅が増えたので、キャッチコピーの再表示ラインを 481px → 520px に上げる。
+   実測 (Chrome, Windows): 481px でキャッチコピーを出すと nav までの余白が 50.5px → 27.5px しか残らず、
+   端末のフォント差 (~30px) を吸収できない。520px なら余白 66px を確保できる。 */
+@media (min-width: 481px) and (max-width: 519px) {
+  .site-tag { display: none; }
+}
+
+/* ============================================================
+   スマホでの拾い読み対応 2026-07-25
+   制度記事は1本1万字超あり、SEO上その長さは維持したまま
+   「隙間時間にスマホで拾い読みできる」導線だけを UI 側で足す。
+     1. .summary-card  記事冒頭の「30秒でわかる」(components/SummaryCard.jsx)
+     2. .toc-details   スマホでは目次を初期クローズ (components/Toc.jsx)
+     3. .toc-fab       追従する「もくじへ戻る」(components/TocFab.jsx / スマホのみ)
+   ============================================================ */
+
+/* ---------- 1. 30秒でわかるサマリーカード ---------- */
+.summary-card {
+  margin: 0 0 20px;
+  padding: 14px 16px 13px;
+  background: var(--surface);
+  border: 2px solid var(--brand);
+  border-radius: var(--radius);
+}
+.summary-card-head {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px;
+  margin-bottom: 10px;
+}
+.summary-card-badge {
+  display: inline-block;
+  background: var(--brand); color: #fff;
+  font-size: .76rem; font-weight: 700; letter-spacing: .04em;
+  padding: 2px 10px; border-radius: 999px; line-height: 1.7;
+}
+.summary-card-read { font-size: .8rem; color: var(--text-soft); line-height: 1.6; }
+
+.summary-list { margin: 0; padding: 0; }
+.summary-row {
+  display: grid; grid-template-columns: 4.6em 1fr; gap: 4px 10px;
+  padding: 9px 0; border-top: 1px dashed var(--line);
+}
+.summary-row:first-child { border-top: 0; padding-top: 0; }
+.summary-list dt {
+  font-size: .8rem; font-weight: 700; color: var(--brand-deep);
+  background: var(--brand-soft); border-radius: 6px;
+  padding: 2px 0; text-align: center; align-self: start;
+  line-height: 1.8;
+}
+.summary-list dd { margin: 0; min-width: 0; }
+.summary-value {
+  display: block; font-size: .95rem; font-weight: 700; line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.summary-note,
+.summary-sub {
+  display: block; margin-top: 3px;
+  font-size: .8rem; line-height: 1.75; color: var(--text-soft);
+  overflow-wrap: anywhere;
+}
+.summary-note { color: #8a6d3b; }
+
+.summary-official {
+  display: inline-flex; align-items: center; min-height: 34px;
+  margin-top: 10px; font-size: .86rem; font-weight: 700;
+}
+.summary-caution {
+  margin: 8px 0 0; font-size: .78rem; line-height: 1.75; color: var(--text-soft);
+}
+
+@media (min-width: 640px) {
+  .summary-card { padding: 16px 18px 15px; }
+  .summary-row { grid-template-columns: 5.4em 1fr; }
+  .summary-value { font-size: .98rem; }
+}
+@media (max-width: 359px) {
+  .summary-row { grid-template-columns: 1fr; }
+  .summary-list dt { justify-self: start; padding: 2px 10px; }
+}
+
+/* ---------- 2. 目次: スマホは初期クローズ ---------- */
+/* 開閉ラベルが「もくじ（全◯項目）」に伸びたぶん、右の +/- と重ならないよう余白を確保。
+   PC では components/Toc.jsx のインラインスクリプトが open にするので、見た目は従来どおり */
+.toc-summary { padding-right: 44px; }
+.toc-details:not([open]) .toc-summary { border-radius: calc(var(--radius) - 1px); }
+
+/* ---------- 3. 追従する「もくじへ戻る」(スマホのみ) ---------- */
+.toc-fab {
+  position: fixed; right: 14px; bottom: 18px; z-index: 20;
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 10px 15px;
+  background: rgba(255, 255, 255, .97);
+  border: 1.5px solid var(--brand);
+  border-radius: 999px;
+  color: var(--brand-deep);
+  font-family: inherit; font-size: .82rem; font-weight: 700; line-height: 1;
+  box-shadow: 0 3px 12px rgba(45, 42, 38, .16);
+  cursor: pointer;
+  opacity: 0; transform: translateY(10px); pointer-events: none;
+  transition: opacity .18s ease, transform .18s ease;
+}
+.toc-fab.is-visible { opacity: 1; transform: none; pointer-events: auto; }
+.toc-fab-icon { font-size: .94rem; line-height: 1; }
+.toc-fab:active { background: var(--brand-soft); }
+
+/* PC は目次が開いたまま常時見えているので不要 */
+@media (min-width: 640px) { .toc-fab { display: none; } }
+@media (prefers-reduced-motion: reduce) { .toc-fab { transition: none; } }
+
+/* ============================================================
+   文字サイズの下限そろえ 2026-07-26
+   実測 (375px): こども家庭庁はページ内の最小文字が 14px、サンキュ! でも注記が 12px。
+   当サイトは 9.28px〜11.8px の要素が多数あり、ここが「読む前の離脱」の原因になる。
+   上の一括引き上げ (html 16px→16.5px + rem の対応表) で globals.css 側は
+   最小 12.5px まで上がったが、components/*.module.css の指定だけが残るため、
+   ここで下限だけを上書きする。
+   ※ components/ は別エージェントが作業中のため直接触らない。
+     module 側が直ったらこのブロックは削除してよい。
+   ※ CSS Modules のクラス名は [ファイル名]_[ローカル名]__[hash] 形式なので
+     `__` までの前方一致で安定して当てられる。
+   ※ 属性セレクタを2回重ねているのは詳細度を (0,2,0) にするため。
+     1個だと module 側の .period 等と同点になり、CSS の読み込み順で勝ち負けが変わる。 */
+[class*="NextRead_badge__"][class*="NextRead_badge__"],
+[class*="ArticleSeasonalNotice_period__"][class*="ArticleSeasonalNotice_period__"] { font-size: .76rem; }  /* .68rem 10.9px → 12.5px */
+[class*="ArticleSeasonalNotice_note__"][class*="ArticleSeasonalNotice_note__"]     { font-size: .78rem; }  /* .72rem 11.5px → 12.9px */
+[class*="NextRead_termDef__"][class*="NextRead_termDef__"]                         { font-size: .8rem; }   /* .74rem 11.8px → 13.2px */
+[class*="NextRead_plainNote__"][class*="NextRead_plainNote__"]                     { font-size: .82rem; }  /* .76rem 12.2px → 13.5px */
+[class*="NextRead_groupNote__"][class*="NextRead_groupNote__"]                     { font-size: .82rem; }  /* .78rem 12.5px → 13.5px */
+[class*="NextRead_cardSummary__"][class*="NextRead_cardSummary__"],
+[class*="ArticleSeasonalNotice_calendarLink__"][class*="ArticleSeasonalNotice_calendarLink__"],
+[class*="ArticleSeasonalNotice_lineLink__"][class*="ArticleSeasonalNotice_lineLink__"] { font-size: .84rem; } /* .8rem 12.8px → 13.9px */
+[class*="NextRead_termName__"][class*="NextRead_termName__"]                       { font-size: .88rem; }  /* .84rem 13.4px → 14.5px */
+[class*="ArticleSeasonalNotice_body__"][class*="ArticleSeasonalNotice_body__"]     { font-size: .86rem; }  /* .82rem 13.1px → 14.2px */
+[class*="NextRead_cardTitle__"][class*="NextRead_cardTitle__"]                     { font-size: .98rem; }  /* .95rem 15.2px → 16.2px */
+[class*="NextRead_groupTitle__"][class*="NextRead_groupTitle__"]                   { font-size: .94rem; }  /* .9rem  14.4px → 15.5px */
+[class*="ArticleSeasonalNotice_itemTitle__"][class*="ArticleSeasonalNotice_itemTitle__"] { font-size: .95rem; }
+[class*="NextRead_title__"][class*="NextRead_title__"]                             { font-size: 1.15rem; } /* 1.1rem 17.6px → 19px */
+
+/* ============================================================
+   困りごとから探す (/start) 2026-07-26 追加
+   ------------------------------------------------------------
+   見た目はトップページの .cat-section / .card-list / .card をそのまま流用し、
+   ここでは「このページ固有の3点」だけを足す:
+     1. 見出し直下のリード文 (.concern-lead)
+     2. 解説がまだ無い制度のカード (.concern-card-pending) と公式サイトへの外部リンク
+     3. 要約の行数 — トップは2行でクランプしているが、/start の準備中カードは
+        要約が唯一の情報なので省略しない (クランプすると制度の説明が切れる)
+   色・角丸・文字サイズは既存の変数のみを使う (新しい色を増やさない)
+   ============================================================ */
+
+/* ヘッダーの「困りごとから探す」。用語集・おしゃべりより主導線なので色で差をつける。
+   ★ラベルの出し分け★ 375px のヘッダーはロゴ + ナビ2項目でほぼ飽和しているので、
+   640px 以下では「困りごと」に縮めて1行を保つ (2段に折れると sticky ヘッダーが
+   高くなり、html の scroll-padding-top: 86px を超えて見出しが隠れる) */
+.site-nav-primary { color: var(--brand-deep); font-weight: 700; }
+.site-nav-short { display: none; }
+@media (max-width: 640px) {
+  .site-nav-long { display: none; }
+  .site-nav-short { display: inline; }
+}
+
+/* トップページ hero 直下の /start への導線。
+   カテゴリチップ (枠線だけの淡い見た目) より前に出すので、面で塗って差をつける。
+   ただしブランドのローズを全面には敷かない (トップ全体が主張しすぎるため) */
+.start-entry {
+  display: block; margin: 16px 0 0; padding: 14px 16px;
+  background: var(--brand-soft); border: 1px solid #f3d9e1;
+  border-radius: var(--radius); text-decoration: none; color: var(--text);
+  transition: border-color .15s, box-shadow .15s;
+}
+.start-entry:hover { border-color: var(--brand); box-shadow: 0 2px 12px rgba(224, 90, 122, .1); }
+.start-entry-label {
+  display: block; font-size: 1.02rem; font-weight: 800; color: var(--brand-deep);
+  line-height: 1.5;
+}
+.start-entry-text {
+  display: block; margin-top: 4px; font-size: .88rem; line-height: 1.8; color: var(--text-soft);
+}
+.start-entry-text strong { color: var(--brand-deep); }
+.start-entry-go {
+  display: block; margin-top: 8px; font-size: .88rem; font-weight: 700; color: var(--brand-deep);
+}
+
+.concern-section { margin-top: 34px; }
+
+.concern-lead {
+  margin: -4px 0 12px; font-size: .88rem; line-height: 1.85; color: var(--text-soft);
+}
+
+/* 「準備中」の説明。チップ群のすぐ下に置き、下のカードを読む前提を作る */
+.concern-notice {
+  margin: 16px 0 0; padding: 11px 14px;
+  background: var(--info-soft); border-radius: 10px;
+  font-size: .86rem; line-height: 1.8; color: var(--text);
+}
+.concern-notice strong { color: var(--info); }
+
+/* トップの2行クランプだと制度の説明が途中で切れるため 3行に広げる */
+.concern-card p { -webkit-line-clamp: 3; }
+
+/* 解説記事が無い制度。リンクではないので、カードとして押せるように見せない
+   (背景を落とし、hover の枠色変化も出さない。/{pref} の .word-card-pending と同じ扱い) */
+.concern-card-pending { background: #fbfaf9; cursor: default; }
+.concern-card-pending h3 { color: var(--text-soft); }
+.concern-card-pending:hover { border-color: var(--line); box-shadow: none; }
+/* 準備中カードでは要約が唯一の情報。クランプせず全文を出す */
+.concern-card-pending p { -webkit-line-clamp: unset; display: block; overflow: visible; }
+
+.concern-pending-note {
+  margin: 10px 0 0; font-size: .82rem; line-height: 1.75; color: var(--text-soft);
+}
+
+/* 外部リンク。カード内の唯一の操作なので、タップ領域を 40px 以上確保する */
+.concern-official-link {
+  display: inline-flex; align-items: center; flex-wrap: wrap;
+  min-height: 40px; margin-top: 6px;
+  font-size: .88rem; font-weight: 700; line-height: 1.5;
+}
+.concern-official-host { font-weight: 400; font-size: .8rem; color: var(--text-soft); }
+
+.concern-outro p {
+  margin: 0; font-size: .9rem; line-height: 1.85; color: var(--text-soft);
+}
+
+/* ---------- 記事のイラスト (試験導入・supports id=1 のみ) ----------
+   素材と割り当てルール: docs/article-visuals-spec.md / lib/visuals.js
+   全記事に広げるときは app/support/[id]/page.jsx の条件を外すだけでよい */
+
+/* ★イラストと H2 を1つの塊として見せる★
+   別々に置くと、同系色のピンクのブロックが2つ縦に並んで、
+   一体にも別々にも見えない中途半端な見た目になり、高さも食う。
+   イラストは上側だけ角丸 + 下マージン0、H2 は下側だけ角丸 + 上マージン0 でつなぐ。 */
+.article .article-visual {
+  position: relative; display: block;
+  margin: 2.4em 0 0;
+  border-radius: 12px 12px 0 0; overflow: hidden; line-height: 0;
+}
+.article .article-visual img {
+  width: 100%; display: block; margin: 0; border: 0; border-radius: 0;
+  /* ★高さは px で固定せず、比率で切る★
+     px 固定だと、幅が広いほど切り取る割合が増えて PC で人物の頭が切れる
+     (760px 幅では元の高さ 190px を 76px に切っていた = 6割を捨てていた)。
+     素材 11枚を実測したところ、絵は上下に 12% ずつ余白があり高さの 75% を使う。
+     つまり切れるのは上下 12% ずつまで = 1200:226 ≒ 5.3:1 が限界。
+     安全側に 5.5:1 とし、どの幅でも同じ割合で切る。
+     この切り取りで、下端に焼いたクレジットもサイト上では見えなくなる。 */
+  aspect-ratio: 5.5 / 1; height: auto; object-fit: cover;
+}
+.article .article-visual + h2 {
+  margin-top: 0;
+  border-radius: 0 0 12px 12px;
+}
+/* ★見出しイラストにクレジットは付けない★
+   これらは全記事で使い回す汎用の飾りで、絵の上に17字を重ねると
+   絵にかぶって読みにくく、キャプションのように見えてしまう。
+   クレジットが本当に意味を持つのは、制度ごとに作った図解 (金額の早見表など) のほう。
+   そちらに付けるかどうかは別途判断する。 */
+
+/* 吹き出しの顔アイコン。★48px★ — 32px だと表情差が判別できないため
+   (docs/article-visuals-spec.md 1-1 の実測) */
+.article .dialogue-bubble.has-face {
+  /* ★ベースの .dialogue-bubble が flex-direction: column なので、必ず row を明示する★
+     (これを忘れると顔が吹き出しの「上」に乗る) */
+  display: flex; flex-direction: row; align-items: flex-start; gap: 8px;
+}
+.article .dialogue-bubble-right.has-face { flex-direction: row-reverse; }
+.article .dialogue-face {
+  flex: 0 0 auto; width: 48px; height: 48px;
+  border-radius: 50%; /* 素材は不透明背景なので表示側で丸くする */
+  margin: 0; border: 1px solid var(--line);
+}
+.article .dialogue-body { min-width: 0; flex: 1; }
+
+@media (max-width: 430px) {
+  /* 幅が厳しくてもアイコンは 40px を下限にする (これ以下は表情が判別できない) */
+  .article .dialogue-face { width: 40px; height: 40px; }
+  .article .dialogue-bubble.has-face { gap: 6px; }
+  .article .article-visual { margin-top: 2em; }
+}

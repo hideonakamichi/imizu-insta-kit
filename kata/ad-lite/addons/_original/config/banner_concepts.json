@@ -1,0 +1,14 @@
+{
+  "concepts": [
+    {
+      "id": "benefit_first",
+      "direction": "導入後の変化を一目で伝える",
+      "headline_jp": "面倒な作業を、もっとシンプルに。",
+      "sub_jp": "あなたの時間を、本当に大切な仕事へ。",
+      "tone_prompt": "Clean, minimal, high-contrast Japanese commercial design. White background with one brand accent color. One clear focal subject, generous whitespace, strong visual hierarchy, no unnecessary decoration.",
+      "personas": {
+        "professional": "A friendly Japanese professional in their 30s, modern business-casual clothing, natural confident expression, generic and not recognizable."
+      }
+    }
+  ]
+}

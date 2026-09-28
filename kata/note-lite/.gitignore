@@ -1,0 +1,8 @@
+.env.local
+.env.*.local
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc
+output/*/
+!output/.gitkeep

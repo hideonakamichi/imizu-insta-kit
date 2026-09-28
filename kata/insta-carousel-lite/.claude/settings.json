@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(py .claude/skills/banner-production/scripts/banner.py *)",
+      "Bash(py .claude/skills/shared/scripts/check_brand.py)",
+      "Bash(py .claude/skills/shared/scripts/check_brand.py *)",
+      "Bash(py .claude/skills/shared/scripts/build_article_index.py)",
+      "Bash(py .claude/skills/shared/scripts/build_article_index.py *)",
+      "Bash(py .claude/skills/shared/scripts/make_post_folder.py *)",
+      "Bash(py .claude/skills/shared/scripts/record_history.py *)",
+      "Bash(python3 .claude/skills/banner-production/scripts/banner.py *)",
+      "Bash(python3 .claude/skills/shared/scripts/check_brand.py)",
+      "Bash(python3 .claude/skills/shared/scripts/check_brand.py *)",
+      "Bash(python3 .claude/skills/shared/scripts/build_article_index.py)",
+      "Bash(python3 .claude/skills/shared/scripts/build_article_index.py *)",
+      "Bash(python3 .claude/skills/shared/scripts/make_post_folder.py *)",
+      "Bash(python3 .claude/skills/shared/scripts/record_history.py *)"
+    ]
+  }
+}

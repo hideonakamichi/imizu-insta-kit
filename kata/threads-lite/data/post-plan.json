@@ -1,0 +1,5 @@
+{
+  "_note": "旧テーマ依存をリセット済み。topic-profile.json + draft-bank.json 方式では通常このファイルは空でよい。従来のトピック自動割当を使う場合のみ firstPost / pinned を指定する。",
+  "firstPost": null,
+  "pinned": []
+}

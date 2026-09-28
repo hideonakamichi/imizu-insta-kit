@@ -1,0 +1,17 @@
+{
+  "_note": "topic-profile.json が active のときは、こちらは使われない（profile が投稿の土台になる）。profile が未設定のときのフォールバック用に1件だけ中立トピックを置く。",
+  "brand": {
+    "name": "My Threads",
+    "positioning": "自分のテーマで毎日発信するアカウント",
+    "voice": "topic-profile.json の voice に従う"
+  },
+  "topics": [
+    {
+      "id": 1,
+      "title": "あなたのテーマ",
+      "audience": "想定読者",
+      "keywords": ["キーワード1", "キーワード2"],
+      "angle": "topic-profile.json を設定すると、ここは使われません"
+    }
+  ]
+}

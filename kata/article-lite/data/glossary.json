@@ -1,0 +1,32 @@
+[
+ {
+  "id": 1,
+  "slug": "fuyou",
+  "term": "扶養",
+  "reading": "ふよう",
+  "level": "L1",
+  "sort_order": 10,
+  "short_def": "生活費のめんどうをみること。税金や手当の制度では「誰が誰を養っているか」が金額に影響します。",
+  "article_md": null
+ },
+ {
+  "id": 2,
+  "slug": "shotoku-shunyu",
+  "term": "所得と収入のちがい",
+  "reading": "しょとくとしゅうにゅうのちがい",
+  "level": "L1",
+  "sort_order": 20,
+  "short_def": "収入は入ってきたお金の全部。所得はそこから決められた分を引いた残りのお金です。",
+  "article_md": null
+ },
+ {
+  "id": 3,
+  "slug": "kojo",
+  "term": "控除",
+  "reading": "こうじょ",
+  "level": "L1",
+  "sort_order": 30,
+  "short_def": "税金の計算をするときに、収入や税額から差し引ける金額のこと。引ける額が多いほど税金は安くなります。",
+  "article_md": null
+ }
+]

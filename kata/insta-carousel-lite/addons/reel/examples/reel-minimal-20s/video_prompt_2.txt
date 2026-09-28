@@ -1,0 +1,38 @@
+Create a complete 10.000-second Japanese typography-driven vertical (9:16) short video for an information account that helps parents of children who do not attend regular school. This is PART 2 of a 2-part continuous reel; it starts directly on a new shot (no intro fade) and ends with a still end card.
+
+STYLE LOCK (identical across all shots — do not drift):
+Use a minimal flat design. Exactly 3 colors total:
+- background warm off-white #F4F1E8
+- typography dark navy #1E2A44
+- one calm muted-green accent #7FA383
+Never render a hex code, colour code, the "#" character, or any other technical notation as visible text anywhere in the video — the colour values above are instructions for you, not content to draw.
+No photographic elements, no human figures, no gradients, no neon, no logos,
+no watermarks, no fear-inducing imagery.
+Typography is the primary information-design element, not subtitles.
+Use a bold modern Japanese Gothic typeface with high readability.
+Generous negative space, one message per shot, high contrast.
+Do not let the style drift between shots.
+Small flat-vector icons in the accent green may support a message but must stay subtle.
+
+[Shot 1] 00:00.000-00:03.000
+Begin immediately on a fresh off-white screen (hard cut, no intro fade). Large dark-navy Japanese text appears in two stages, centered:
+"出席あつかいに"
+"できることも"
+A small flat off-white school-building icon with a green check mark pops in beside the text.
+
+[Shot 2] 00:03.000-00:06.500
+Cut to the off-white background. Large dark-navy text appears in two stages:
+"まずは"
+"見学からでOK"
+A thin muted-green rule draws beneath the second line.
+A simple flat green open-door icon fades in below the text.
+
+[Shot 3] 00:06.500-00:10.000
+Cut to a calm off-white end card with generous negative space. Reveal in dark navy, centered:
+"フリースクールという学び方"
+Below it, a smaller line of muted-green text:
+"保存して見返してね"
+Hold the end card completely still until exactly 10.000 seconds. Do not fade to black.
+
+
+overall_soundscape: soft paper-like pops when typography appears, a light click when the check-mark icon lands, one soft confirmation chime on the end card. No narration. No spoken words. No dialogue. No background music. No vocals.

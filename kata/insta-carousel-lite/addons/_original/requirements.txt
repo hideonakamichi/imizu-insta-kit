@@ -1,0 +1,17 @@
+# 現行パイプライン（Grok CLI移行後）
+pillow>=10.0
+pyyaml>=6.0
+boto3>=1.34
+
+# リールのナレーション音声（Fish Audio TTS）。
+# narrate_and_mix.py → audio_generate.py が使う現行リールの必須依存。
+# リールを使わない（カルーセルのみ）場合は不要。
+fish-audio-sdk
+
+# レガシー・スライド式リール／旧画像生成用（references/legacy-slide-pipeline.md）。
+# 現行の既定経路では未使用だが、フォールバックのため残している
+openai>=1.50
+budoux
+
+# 別途必要な外部コマンド（pipでは入らない）:
+#   ffmpeg / ffprobe … リールの結合・音声ミックスに必須（brew install ffmpeg）

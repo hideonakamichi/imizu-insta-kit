@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96" fill="none">
+<defs>
+<clipPath id="t-how"><rect width="96" height="96" rx="20"/></clipPath>
+<g id="s-how" fill="#000"><rect x="14" y="45" width="68" height="6" rx="3"/><circle cx="24" cy="48" r="13"/><circle cx="48" cy="48" r="13"/><circle cx="72" cy="48" r="13"/></g>
+</defs>
+<rect width="96" height="96" rx="20" fill="#2F9E6E"/>
+<g clip-path="url(#t-how)" opacity="0.16"><use href="#s-how" x="2" y="2"/><use href="#s-how" x="4" y="4"/><use href="#s-how" x="6" y="6"/><use href="#s-how" x="8" y="8"/><use href="#s-how" x="10" y="10"/><use href="#s-how" x="12" y="12"/><use href="#s-how" x="14" y="14"/><use href="#s-how" x="16" y="16"/><use href="#s-how" x="18" y="18"/><use href="#s-how" x="20" y="20"/><use href="#s-how" x="22" y="22"/><use href="#s-how" x="24" y="24"/><use href="#s-how" x="26" y="26"/><use href="#s-how" x="28" y="28"/><use href="#s-how" x="30" y="30"/><use href="#s-how" x="32" y="32"/><use href="#s-how" x="34" y="34"/><use href="#s-how" x="36" y="36"/><use href="#s-how" x="38" y="38"/><use href="#s-how" x="40" y="40"/><use href="#s-how" x="42" y="42"/><use href="#s-how" x="44" y="44"/><use href="#s-how" x="46" y="46"/><use href="#s-how" x="48" y="48"/><use href="#s-how" x="50" y="50"/><use href="#s-how" x="52" y="52"/><use href="#s-how" x="54" y="54"/><use href="#s-how" x="56" y="56"/><use href="#s-how" x="58" y="58"/><use href="#s-how" x="60" y="60"/><use href="#s-how" x="62" y="62"/><use href="#s-how" x="64" y="64"/><use href="#s-how" x="66" y="66"/><use href="#s-how" x="68" y="68"/><use href="#s-how" x="70" y="70"/><use href="#s-how" x="72" y="72"/></g>
+<rect x="14" y="45" width="68" height="6" rx="3" fill="#FFFFFF"/>
+<circle cx="24" cy="48" r="13" fill="#FFFFFF"/><circle cx="24" cy="48" r="5" fill="#C9D6E2"/>
+<circle cx="48" cy="48" r="13" fill="#FFFFFF"/><circle cx="48" cy="48" r="6.5" fill="#C9D6E2"/>
+<circle cx="72" cy="48" r="13" fill="#FFFFFF"/><circle cx="72" cy="48" r="8" fill="#F5A623"/>
+</svg>

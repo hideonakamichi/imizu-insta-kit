@@ -1,0 +1,189 @@
+/* 記事末尾の「次に読む」。
+   globals.css は他の作業とぶつかるので触らず、ここに閉じ込める。
+   色・角丸はデザイントークン (--brand / --radius など) を再利用してトーンを合わせる。
+   スマホファースト: 1カラムを既定とし、幅が取れるときだけ 2カラムにする。 */
+
+.next {
+  margin: 36px 0 8px;
+  padding: 20px 16px 18px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.title {
+  margin: 0 0 18px;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: var(--brand-deep);
+  border-left: 5px solid var(--brand);
+  padding-left: 12px;
+}
+
+.group + .group {
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.groupTitle {
+  margin: 0 0 8px;
+  font-size: .82rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  color: var(--text-soft);
+}
+
+.groupNote {
+  margin: 0 0 10px;
+  font-size: .78rem;
+  line-height: 1.7;
+  color: var(--text-soft);
+}
+
+/* ---------- 制度カード ---------- */
+.list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  display: block;
+  padding: 12px 14px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color .15s, box-shadow .15s;
+}
+.card:hover,
+.card:focus-visible {
+  border-color: var(--brand);
+  box-shadow: 0 2px 12px rgba(224, 90, 122, .1);
+}
+
+.cardBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 5px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 999px;
+  font-size: .68rem;
+  font-weight: 700;
+  line-height: 1.7;
+  white-space: nowrap;
+}
+.badgeCat { background: var(--brand-soft); color: var(--brand-deep); }
+.badgePref { background: var(--info-soft); color: var(--info); }
+
+.cardTitle {
+  display: block;
+  font-size: .95rem;
+  font-weight: 700;
+  line-height: 1.55;
+  color: var(--brand-deep);
+}
+
+.cardSummary {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  margin-top: 4px;
+  font-size: .8rem;
+  line-height: 1.7;
+  color: var(--text-soft);
+}
+
+/* ---------- 用語チップ ---------- */
+.terms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.term {
+  display: block;
+  max-width: 100%;
+  padding: 7px 12px;
+  background: var(--brand-soft);
+  border: 1px solid #f4dbe2;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: border-color .15s, background .15s;
+}
+.term:hover,
+.term:focus-visible { border-color: var(--brand); background: #fbe8ee; }
+
+.termName {
+  font-size: .84rem;
+  font-weight: 700;
+  color: var(--brand-deep);
+}
+.termDef {
+  font-size: .74rem;
+  color: var(--text-soft);
+  margin-left: 6px;
+}
+
+/* ---------- 一覧への導線 ---------- */
+.plainList {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.plainLink {
+  display: block;
+  padding: 11px 14px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color .15s, background .15s;
+}
+.plainLink:hover,
+.plainLink:focus-visible { border-color: var(--brand); background: var(--brand-soft); }
+
+.plainLabel {
+  display: block;
+  font-size: .9rem;
+  font-weight: 700;
+  color: var(--brand-deep);
+}
+.plainLabel::after {
+  content: ' →';
+  font-weight: 400;
+}
+.plainNote {
+  display: block;
+  margin-top: 2px;
+  font-size: .76rem;
+  line-height: 1.6;
+  color: var(--text-soft);
+}
+
+/* 幅が取れる画面だけ 2カラム。375px では常に1カラムのまま */
+@media (min-width: 600px) {
+  .next { padding: 24px 22px 22px; }
+  .list { grid-template-columns: 1fr 1fr; }
+  .plainList { grid-template-columns: 1fr 1fr; }
+}

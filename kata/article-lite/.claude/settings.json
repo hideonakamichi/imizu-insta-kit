@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bash scripts/supabase-query.sh *)",
+      "Bash(bash scripts/agents-db.sh *)",
+      "Bash(bash scripts/start-reflection.sh *)",
+      "Bash(bash scripts/export-articles.sh)",
+      "Bash(bash scripts/export-articles.sh *)",
+      "Bash(bash scripts/article-health-check.sh *)",
+      "Bash(bash scripts/sync-data.sh)",
+      "Bash(bash .claude/scripts/notify-discord.sh *)",
+      "WebSearch",
+      "WebFetch"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Threads OAuth Callback</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 40px; line-height: 1.7; color: #111; }
+    code { display: block; padding: 16px; background: #f4f4f5; border-radius: 8px; word-break: break-all; }
+    button { padding: 10px 14px; border: 1px solid #ccc; border-radius: 8px; background: white; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>Threads連携コードを受け取りました</h1>
+  <p>下のcodeをコピーして、token交換コマンドに渡してください。</p>
+  <code id="code">読み込み中...</code>
+  <p><button id="copy">codeをコピー</button></p>
+  <script>
+    const params = new URLSearchParams(location.search);
+    const code = params.get("code");
+    const error = params.get("error") || params.get("error_message");
+    const output = document.querySelector("#code");
+    const button = document.querySelector("#copy");
+    output.textContent = error ? `認可エラー: ${error}` : (code || "URLにcodeがありません。");
+    button.addEventListener("click", async () => {
+      if (!code) return;
+      await navigator.clipboard.writeText(code);
+      button.textContent = "コピーしました";
+    });
+  </script>
+</body>
+</html>

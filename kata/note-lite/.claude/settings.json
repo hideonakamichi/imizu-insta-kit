@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(py .claude/skills/note-writing/scripts/check_persona.py)",
+      "Bash(py .claude/skills/note-writing/scripts/note-preview.py *)",
+      "Bash(python3 .claude/skills/note-writing/scripts/check_persona.py)",
+      "Bash(python3 .claude/skills/note-writing/scripts/note-preview.py *)",
+      "WebSearch",
+      "WebFetch"
+    ]
+  }
+}

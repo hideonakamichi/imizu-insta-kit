@@ -1,0 +1,91 @@
+{
+  "theme": "実写風テスト: 不登校は選択肢（シネマティック版）",
+  "duration_sec": 20,
+  "segments": [
+    {
+      "file": "video_prompt_1.txt",
+      "duration_sec": 10
+    },
+    {
+      "file": "video_prompt_2.txt",
+      "duration_sec": 10
+    }
+  ],
+  "on_screen_texts": [
+    {
+      "segment": 1,
+      "shot": 1,
+      "text": "学校を休む"
+    },
+    {
+      "segment": 1,
+      "shot": 1,
+      "text": "それは逃げ？"
+    },
+    {
+      "segment": 1,
+      "shot": 2,
+      "text": "不登校は"
+    },
+    {
+      "segment": 1,
+      "shot": 2,
+      "text": "選択肢のひとつ"
+    },
+    {
+      "segment": 1,
+      "shot": 3,
+      "text": "フリースクールは"
+    },
+    {
+      "segment": 1,
+      "shot": 3,
+      "text": "全国500か所以上"
+    },
+    {
+      "segment": 2,
+      "shot": 1,
+      "text": "出席あつかいに"
+    },
+    {
+      "segment": 2,
+      "shot": 1,
+      "text": "できることも"
+    },
+    {
+      "segment": 2,
+      "shot": 2,
+      "text": "まずは"
+    },
+    {
+      "segment": 2,
+      "shot": 2,
+      "text": "見学からでOK"
+    },
+    {
+      "segment": 2,
+      "shot": 3,
+      "text": "フリースクールという学び方"
+    },
+    {
+      "segment": 2,
+      "shot": 3,
+      "text": "保存して見返してね"
+    }
+  ],
+  "narration": "学校を休むのは、逃げじゃない。不登校は、選択肢のひとつ。フリースクールは、全国に500か所以上あります。在籍校で、出席扱いになることもあります。まずは、見学からで大丈夫。フリースクールという学び方があります。",
+  "hook_text": "学校を休む それは逃げ？",
+  "narration_mode": "fish_audio",
+  "narration_segments": [
+    {
+      "segment": 1,
+      "text": "学校を休むのは、逃げじゃない。不登校は、選択肢のひとつ。フリースクールは、全国に500か所以上あります。"
+    },
+    {
+      "segment": 2,
+      "text": "在籍校で、出席扱いになることもあります。まずは、見学からで大丈夫。フリースクールという学び方があります。"
+    }
+  ],
+  "music_mode": "file_bgm",
+  "bgm_file": "my_bgm_01.mp3"
+}

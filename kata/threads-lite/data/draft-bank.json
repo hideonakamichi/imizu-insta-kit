@@ -1,0 +1,11 @@
+{
+  "_note": "AIが topic-profile.json の文体・テーマで生成した投稿本文のストック（7日分）。generate-drafts.mjs が --from-bank で読み、threads-drafts.json に変換する。投稿済みになっても消さない（重複判定の履歴は threads-posts.json 側が持つ）。",
+  "_howTo": {
+    "items[].body": "投稿本文（ハッシュタグ前。500文字以内）。",
+    "items[].angle": "その回の切り口・狙い（任意・分析用）。",
+    "items[].dayOffset": "ストック内の通し番号（0始まり・任意）。"
+  },
+  "profileTheme": "",
+  "generatedAt": null,
+  "items": []
+}

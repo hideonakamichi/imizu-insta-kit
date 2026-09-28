@@ -1,0 +1,33 @@
+# ★秘密情報★ ここを消さないこと。API キーが commit されます
+.env
+.env.local
+.env.cloud
+site/.env.local
+
+# ローカル実行時の生成物
+.claude/db/
+.claude/settings.local.json
+.claude/worktrees/
+scratchpad/
+scratch_*.json
+
+# Node
+site/node_modules/
+site/.next/
+site/.next-verify/
+
+# 作業用の一時ファイル (画像点検の生成物・記事の下書き等)
+.scratch/
+.scratch_imgs/
+.tmp/
+.tmp_articles/
+export/
+preview/
+
+# Python のキャッシュ (実行のたびに差分が出る)
+__pycache__/
+*.pyc
+
+# Lite 版の書き出し先
+output/*/
+!output/.gitkeep

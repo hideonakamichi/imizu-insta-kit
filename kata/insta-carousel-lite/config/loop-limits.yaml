@@ -1,0 +1,28 @@
+# やり直し回数の上限（Bounded Agent Loop）
+#
+# 生成→評価→直す、を繰り返すときの安全弁。各ループに次の3つを必ず定義する:
+#   1. goal           — 終了条件（どの状態に達したら抜けるか）
+#   2. max_iterations — 上限回数（達しなくても強制終了）
+#   3. on_exhaust     — 上限に達したときの行き先
+#
+# 上限を緩めると、失敗したときに延々とやり直して Claude の利用量だけがかさむ。
+# Lite 版は投稿を人が手で行うので、上限に達したら「作らずに止めて、理由を報告する」。
+
+loops:
+  carousel_slide_regeneration:
+    description: カルーセルの不合格スライドを、spec を直して描き直すループ（banner.py --only-slide）
+    goal: slide verdict == "pass"
+    max_iterations: 2
+    on_exhaust: stop_and_report  # 投稿用フォルダを作らずに止め、何が通らなかったかを報告する
+
+  caption_evaluation:
+    description: キャプション/ハッシュタグの evaluator 合否判定ループ
+    goal: verdict == "pass"
+    max_iterations: 2
+    on_exhaust: stop_and_report
+
+  banner_evaluation:
+    description: 単発バナー（告知1枚もの）の evaluator 合否判定ループ
+    goal: verdict == "pass"
+    max_iterations: 2
+    on_exhaust: stop_and_report

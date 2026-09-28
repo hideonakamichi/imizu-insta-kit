@@ -1,0 +1,26 @@
+Linux cron 設定例 — 編集長 (補助金パイプライン) を定期実行する
+
+使い方:
+  crontab -e
+  以下の行を追加 (パスは実環境に合わせて編集)
+
+============================================================================
+# 毎時 :05 に差分同期 + 記事生成
+5 * * * * cd /path/to/hojokin-starter && /bin/bash scripts/run-agent.sh support-orchestrator >> /tmp/support-orchestrator.log 2>&1
+
+# 毎日 6:00 にフル同期 + 記事生成
+0 6 * * * cd /path/to/hojokin-starter && /bin/bash scripts/run-agent.sh support-orchestrator >> /tmp/support-orchestrator-full.log 2>&1
+============================================================================
+
+確認:
+  crontab -l               # 登録内容を表示
+  tail -f /tmp/support-orchestrator.log   # ログをリアルタイム監視
+
+停止:
+  crontab -e               # 該当行をコメントアウト or 削除
+
+注意:
+  - cron は環境変数を継承しないため、claude CLI や node/bun のパスが通っていないと失敗する
+  - 必要なら crontab 先頭で PATH を設定する:
+      PATH=/usr/local/bin:/usr/bin:/bin:/home/youruser/.local/bin
+  - cd は必須 (cron のデフォルト working directory は $HOME になるため)

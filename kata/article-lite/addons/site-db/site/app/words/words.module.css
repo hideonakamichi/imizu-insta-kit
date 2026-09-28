@@ -1,0 +1,164 @@
+/* /words — 用語集。
+   方針: このページに来る人は「調べたい言葉が決まっている」ので、
+   ファーストビューは読み物の導入ではなく ★索引★ を置く。説明文は一切置かない。
+   索引は あいうえお順（term の漢字ではなく reading で並べる）＋ ふりがな併記。
+   「寡婦」が読めなくても「かふ」が見えれば引ける、というのがこの索引の要点。
+
+   ★色の使い分け（globals.css の方針に従う）★
+     押せる要素（チップのリンク）      → var(--brand-deep)
+     押せない見出し・行ラベル・注記    → var(--heading) / var(--text-soft) */
+
+/* ---------- 見出し（短く） ---------- */
+.head {
+  padding: 10px 0 0;
+}
+.title {
+  margin: 0;
+  font-size: 1.3rem;
+  line-height: 1.5;
+  letter-spacing: .02em;
+  color: var(--heading);
+}
+
+/* ---------- あいうえお索引 ---------- */
+.index {
+  margin: 14px 0 0;
+  padding: 12px 12px 14px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.indexLabel {
+  /* 索引の見出し。押せないので --heading（ローズは「押せる」の合図に予約） */
+  margin: 0 0 10px;
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  color: var(--heading);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.indexLabel::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+.rows {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+.row {
+  display: grid;
+  grid-template-columns: 1.9em 1fr;
+  gap: 8px;
+  align-items: stretch;
+}
+/* 語数が少なくて行見出しが冗長なときは、見出し列を出さない */
+.rowFlat {
+  grid-template-columns: 1fr;
+}
+.rowLabel {
+  /* 「あ／か／さ…」の行ラベル。押せないので背景も文字色も無彩色に寄せる。
+     ローズを使うとチップ（押せる）と見分けがつかなくなる */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .84rem;
+  font-weight: 700;
+  color: var(--heading);
+  background: #f4f1ee;
+  border-radius: 8px;
+  line-height: 1;
+}
+
+.chips {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.chip {
+  display: inline-block;
+  padding: 5px 10px 4px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--brand-deep);
+  line-height: 1.45;
+  transition: border-color .15s, background-color .15s;
+}
+.chip:hover,
+.chip:focus-visible {
+  border-color: var(--brand);
+  background: var(--brand-soft);
+}
+.chipTerm {
+  font-size: 1rem;
+  font-weight: 700;
+  /* ふりがな（rt）を漢字の上に出す。ここが索引のいちばん大事なところ */
+  ruby-position: over;
+  -webkit-ruby-position: before;
+}
+.chipTerm rt {
+  font-size: .56em;
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: .02em;
+  color: var(--text-soft);
+}
+/* 解説がまだ無い語はリンクにしない（/words/{slug} が 404 になるため） */
+.chipPending {
+  color: var(--text-soft);
+  background: #fbfaf9;
+  border-style: dashed;
+  cursor: default;
+}
+.chipPending .chipTerm {
+  font-weight: 400;
+}
+
+/* ---------- ページ下部（読み物としての説明はここに置く） ---------- */
+.about {
+  margin: 34px 0 0;
+  padding: 14px 16px;
+  background: #fbfaf9;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.aboutTitle {
+  margin: 0 0 6px;
+  font-size: .86rem;
+  font-weight: 700;
+  color: var(--heading);
+}
+.about p {
+  margin: 0;
+  font-size: .84rem;
+  line-height: 1.8;
+  color: var(--text-soft);
+}
+
+/* ---------- 320px ---------- */
+@media (max-width: 359px) {
+  .title { font-size: 1.18rem; }
+  .index { padding: 10px 10px 12px; }
+  .row { grid-template-columns: 1.7em 1fr; gap: 6px; }
+  .chip { padding: 4px 8px 3px; }
+  .chipTerm { font-size: .94rem; }
+}
+
+/* ---------- 画面が広いとき ---------- */
+@media (min-width: 700px) {
+  .index { padding: 16px 18px 18px; }
+  .row { gap: 10px; }
+  .chips { gap: 8px; }
+}

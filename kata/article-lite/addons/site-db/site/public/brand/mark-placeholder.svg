@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192" role="img" aria-label="placeholder mark">
+  <!-- 配布用のプレースホルダー。自分のロゴマークに差し替えてください。
+       差し替え先: site/app/layout.jsx の <img className="site-logo-mark" src="..."> -->
+  <rect width="192" height="192" rx="44" fill="#e9eef5"/>
+  <circle cx="96" cy="72" r="26" fill="#9db4cc"/>
+  <path d="M40 152c0-30 25-52 56-52s56 22 56 52z" fill="#9db4cc"/>
+</svg>

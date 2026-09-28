@@ -1,0 +1,4 @@
+.env.local
+scripts/.cache/
+*.zip
+output/

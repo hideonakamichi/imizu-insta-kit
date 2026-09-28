@@ -1,0 +1,12 @@
+{
+  "name": "threads-lite",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "check": "node --check scripts/generate-drafts.mjs && node --check scripts/threads-publish-draft.mjs",
+    "threads:drafts": "node scripts/generate-drafts.mjs",
+    "threads:today": "node scripts/threads-publish-draft.mjs --skip-posted --skip-today",
+    "threads:posted": "node scripts/threads-publish-draft.mjs --skip-posted --skip-today --mark-posted"
+  }
+}

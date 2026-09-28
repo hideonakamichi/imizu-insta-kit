@@ -1,0 +1,76 @@
+/* 記事ページの季節ブロック。本文の前に置くので、本文を押し下げすぎない密度にする。
+   時期ものなので目は引きたいが、警告 (--warn) ほど強くはしない → ブランドのローズで。 */
+
+.box {
+  margin: 16px 0 4px;
+  padding: 13px 15px 11px;
+  background: var(--brand-soft);
+  border: 1px solid #f2cfd9;
+  border-left: 4px solid var(--brand);
+  border-radius: 12px;
+}
+
+.item + .item {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #f2cfd9;
+}
+
+.head {
+  margin: 0 0 4px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+  line-height: 1.6;
+}
+
+.period {
+  flex: none;
+  padding: 1px 9px;
+  border-radius: 999px;
+  background: var(--brand);
+  color: #fff;
+  font-size: .68rem;
+  font-weight: 700;
+  line-height: 1.8;
+  white-space: nowrap;
+}
+
+.itemTitle {
+  font-size: .92rem;
+  font-weight: 700;
+  color: var(--brand-deep);
+}
+
+.body {
+  margin: 0;
+  font-size: .82rem;
+  line-height: 1.75;
+  color: var(--text);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  margin: 10px 0 0;
+}
+
+.calendarLink,
+.lineLink {
+  font-size: .8rem;
+  font-weight: 700;
+  color: var(--brand-deep);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(178, 58, 87, .35);
+}
+.calendarLink:hover,
+.lineLink:hover { border-bottom-color: var(--brand-deep); }
+
+.note {
+  margin: 8px 0 0;
+  font-size: .72rem;
+  line-height: 1.6;
+  color: var(--text-soft);
+}

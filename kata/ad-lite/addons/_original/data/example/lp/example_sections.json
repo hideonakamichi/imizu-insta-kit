@@ -1,0 +1,17 @@
+{
+  "lp_id": "example-product",
+  "product": "サンプル商品",
+  "direction": "商品の価値をシンプルに伝える",
+  "sections": [
+    {
+      "id": "S01_fv",
+      "name": "ファーストビュー",
+      "size": "1024x1024",
+      "embed_text": {
+        "headline": "商品の一番大きな価値",
+        "cta": "詳しく見る"
+      },
+      "prompt": "Clean, minimal Japanese landing page hero image. White background, one accent color, strong headline area, generous whitespace, clear focal subject, mobile-first composition. Render this exact Japanese headline: 「商品の一番大きな価値」."
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+.venv/
+.env
+.browser_profile/
+__pycache__/
+*.pyc
+.DS_Store
+data/*
+!data/example/
+!data/example/**
+outputs/
+**/.vercel/
+**/deploy_url.txt

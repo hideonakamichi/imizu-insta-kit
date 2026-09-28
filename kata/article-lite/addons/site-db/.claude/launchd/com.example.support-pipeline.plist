@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  編集長 (補助金パイプライン) を毎時 :05 に起動する macOS launchd plist
+
+  セットアップ:
+    1. このファイルをコピーして編集
+       cp .claude/launchd/com.example.support-pipeline.plist ~/Library/LaunchAgents/com.example.support-pipeline.plist
+    2. <YOUR_PROJECT_PATH> を実際のプロジェクトの絶対パスに置換
+       sed -i '' 's|<YOUR_PROJECT_PATH>|/Users/yourname/projects/hojokin-starter|g' ~/Library/LaunchAgents/com.example.support-pipeline.plist
+    3. 登録
+       launchctl load -w ~/Library/LaunchAgents/com.example.support-pipeline.plist
+    4. 確認
+       launchctl list | grep support-pipeline
+    5. 停止する場合
+       launchctl unload -w ~/Library/LaunchAgents/com.example.support-pipeline.plist
+
+  ログ:
+    /tmp/support-orchestrator.stdout.log と /tmp/support-orchestrator.stderr.log に出力されます。
+    必要に応じてパスを変えてください。
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.example.support-pipeline</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>-c</string>
+    <string>cd <YOUR_PROJECT_PATH> && bash scripts/run-agent.sh support-orchestrator</string>
+  </array>
+
+  <!-- 毎時 :05 に起動 (フル同期は別 plist で 6:00 等に組む) -->
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Minute</key>
+    <integer>5</integer>
+  </dict>
+
+  <!-- 起動時に実行しない -->
+  <key>RunAtLoad</key>
+  <false/>
+
+  <!-- 出力ログ -->
+  <key>StandardOutPath</key>
+  <string>/tmp/support-orchestrator.stdout.log</string>
+  <key>StandardErrorPath</key>
+  <string>/tmp/support-orchestrator.stderr.log</string>
+
+  <!-- 環境変数 (PATH に node/bun などのインストール先を追加) -->
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin</string>
+  </dict>
+</dict>
+</plist>

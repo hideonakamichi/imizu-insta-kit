@@ -1,0 +1,24 @@
+[
+ {
+  "id": 1,
+  "slug": "sample-roundtable",
+  "title": "（サンプル）暮らしの選択をめぐるおしゃべり — 制度の説明だけでは分からないこと",
+  "theme": "サンプルテーマ",
+  "lead": "みさき (当事者) とあかり (別の立場の当事者) が、制度の外にある迷いや選択について語り合います。制度への影響は、藤井先生が最後に整理します。★配布版のダミー企画です★",
+  "participants": [
+   "みさき",
+   "あかり",
+   "藤井先生"
+  ],
+  "related_support_ids": [
+   1,
+   2
+  ],
+  "related_glossary_slugs": [
+   "fuyou",
+   "kojo"
+  ],
+  "sort_order": 10,
+  "article_md": null
+ }
+]

@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run check)",
+      "Bash(npm run threads:drafts)",
+      "Bash(npm run threads:drafts *)",
+      "Bash(npm run threads:today)",
+      "Bash(npm run threads:posted)",
+      "Bash(npm run threads:posted *)"
+    ]
+  }
+}

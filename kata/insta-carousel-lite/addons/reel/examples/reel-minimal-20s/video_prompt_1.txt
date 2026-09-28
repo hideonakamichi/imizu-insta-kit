@@ -1,0 +1,38 @@
+Create a complete 10.000-second Japanese typography-driven vertical (9:16) short video for an information account that helps parents of children who do not attend regular school. This is PART 1 of a 2-part continuous reel; end on a content shot, NOT an end card.
+
+STYLE LOCK (identical across all shots — do not drift):
+Use a minimal flat design. Exactly 3 colors total:
+- background warm off-white #F4F1E8
+- typography dark navy #1E2A44
+- one calm muted-green accent #7FA383
+Never render a hex code, colour code, the "#" character, or any other technical notation as visible text anywhere in the video — the colour values above are instructions for you, not content to draw.
+No photographic elements, no human figures, no gradients, no neon, no logos,
+no watermarks, no fear-inducing imagery.
+Typography is the primary information-design element, not subtitles.
+Use a bold modern Japanese Gothic typeface with high readability.
+Generous negative space, one message per shot, high contrast.
+Do not let the style drift between shots.
+Small flat-vector icons in the accent green may support a message but must stay subtle.
+
+[Shot 1] 00:00.000-00:02.500
+On the clean off-white background, large dark-navy Japanese text appears in two stages, centered:
+"学校を休む"
+then
+"それは逃げ？"
+A thin muted-green underline draws under "逃げ？".
+
+[Shot 2] 00:02.500-00:06.000
+Cut to a fresh off-white screen. Large dark-navy Japanese text appears in two stages, centered:
+"不登校は"
+"選択肢のひとつ"
+A thin muted-green rule draws beneath the second line.
+
+[Shot 3] 00:06.000-00:10.000
+Cut back to the off-white background. Large dark-navy text appears in two stages:
+"フリースクールは"
+"全国500か所以上"
+A thin muted-green rule draws beneath the second line.
+Keep this composition on screen until exactly 10.000 seconds. Do not fade to black. Do not add a closing card.
+
+
+overall_soundscape: soft paper-like pops when typography appears, a subtle soft tick when the rule draws. No narration. No spoken words. No dialogue. No background music. No vocals.

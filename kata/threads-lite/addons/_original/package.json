@@ -1,0 +1,17 @@
+{
+  "name": "threads-automation-claude",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "check": "node --check scripts/generate-drafts.mjs && node --check scripts/threads-auth-url.mjs && node --check scripts/threads-exchange-code.mjs && node --check scripts/threads-me.mjs && node --check scripts/threads-publish-draft.mjs && node --check scripts/threads-fetch-metrics.mjs && node --check scripts/threads-improve.mjs",
+    "threads:drafts": "node scripts/generate-drafts.mjs",
+    "threads:improve": "node scripts/threads-improve.mjs",
+    "threads:auth-url": "node scripts/threads-auth-url.mjs",
+    "threads:exchange-code": "node scripts/threads-exchange-code.mjs",
+    "threads:me": "node scripts/threads-me.mjs",
+    "threads:publish": "node scripts/threads-publish-draft.mjs",
+    "threads:metrics": "node scripts/threads-fetch-metrics.mjs",
+    "threads:publish:local": "scripts/local-threads-publish.sh"
+  }
+}

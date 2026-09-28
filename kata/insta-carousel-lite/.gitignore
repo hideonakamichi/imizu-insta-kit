@@ -1,0 +1,18 @@
+# 生成物（画像）は output/ 配下に集約し、リポジトリには積まない
+output/*/
+!output/.gitkeep
+
+# 作成履歴と、索引の更新成否（使う人ごとに違う）
+logs/*.jsonl
+logs/*.json
+logs/*.tmp
+
+# ネタ元から自動で切り出される根拠テキスト（ネタ元さえあれば作り直せる）
+content/articles/*/
+content/articles/index.json
+
+# macOS / Python
+.DS_Store
+__pycache__/
+*.pyc
+.venv/

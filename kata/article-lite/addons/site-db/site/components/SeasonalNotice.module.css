@@ -1,0 +1,17 @@
+/* トップの「今の時期にやること」に足した /calendar への導線だけを持つ。
+   本体のスタイルは globals.css の .seasonal 系 (他の作業とぶつかるので触らない)。 */
+
+.calendarLink {
+  margin: 12px 0 0;
+  font-size: .82rem;
+  line-height: 1.7;
+}
+
+.calendarLink a {
+  font-weight: 700;
+  color: var(--brand-deep);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(178, 58, 87, .35);
+}
+.calendarLink a:hover,
+.calendarLink a:focus-visible { border-bottom-color: var(--brand-deep); }
